@@ -1,0 +1,50 @@
+{
+    "status": true,
+    "message": "success",
+    "quoteState": "pending",
+    "panel": [
+        {
+            "active": false,
+            "name": "Quote Request",
+            "code": "QR",
+            "submited": true,
+            "formData": {
+                "channel": "spareEngineSale",
+                "engineDate": "asdf",
+                "modelNumber": "ABC00001",
+                "productLine": "LM2500",
+                "requestor": "adfsad",
+                "requestorComment": "asdfasdf",
+                "typeOfTransaction": "Spare Engine Sale"
+            }
+        },
+        {
+            "active": true,
+            "name": "Quote Issue",
+            "code": "QI",
+            "submited": false,
+            "formData": {}
+        },
+        {
+            "active": false,
+            "name": "Engine Demand Request",
+            "code": "EDR",
+            "submited": false,
+            "formData": {}
+        },        
+        {
+            "active": false,
+            "name": "PN Confirmation",
+            "code": "PNC",
+            "submited": false,
+            "formData": {}
+        },
+        {
+            "active": false,
+            "name": "Billing",
+            "code": "BIL",
+            "submited": false,
+            "formData": {}
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+<div class="d-flex justify-content-end">
+   <label for="" class="default">Quote ID: </label>
+   <select class="default" name="" id="" #selectField 
+   [(ngModel)]="selectedQuoteID"
+   (change)="selectQuoteId(selectField.value)"> 
+    <option value="Select Quote ID">Select Quote ID</option>    
+     <option data="" value="{{item}}" type="" *ngFor="let item of quoteIdList">{{item}}</option>
+   </select>
+  <!-- <nz-select nzPlaceHolder="Select a Quote ID" (ngModelChange)="selectQuoteId()" [(ngModel)]="selectedQuoteID">
+    <nz-option nzLabel="{{item}}" *ngFor="let item of quoteIdList" nzValue="{{item}}"></nz-option>  
+  </nz-select> -->
+</div>
+<div class="steper">
+    <div [class]="item.submited ? 'active' : null" *ngFor="let item of panels; let i = index">
+        <span class="count">{{i+1}}</span>
+        <span>{{item.name}}</span>
+    </div>    
+ </div> 
+ <div class="accordion used-eng-temp">
+  <nz-collapse nzAccordion>
+    <nz-collapse-panel *ngFor="let panel of panels" [nzHeader]="panel.name" [nzActive]="panel.active">
+      <app-quote-request [quoteRequest]="response" *ngIf="panel.code==='QR'"></app-quote-request>            
+      <app-quote-issue [quoteIssue]="response" *ngIf="panel.code==='QI'"></app-quote-issue>
+      <app-engine-demand-request [engineDemandRequest]="response" *ngIf="panel.code==='EDR'"></app-engine-demand-request>
+      <app-pn-confirmation [pnConfirmation]="response" *ngIf="panel.code==='PNC'"></app-pn-confirmation>
+      <app-billing [billing]="response" *ngIf="panel.code==='BIL'"></app-billing>
+    </nz-collapse-panel>
+  </nz-collapse>
+ </div>
+
+  
+
+
+

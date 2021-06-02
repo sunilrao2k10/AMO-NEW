@@ -1,0 +1,33 @@
+{
+    "status": true,
+    "message": "success",
+    "quoteState": "send",
+    "panel": [
+        {
+          "active": true,
+          "name": "Quote Request",
+          "code": "QR",
+          "submited": true,          
+          "formData": {
+              "channel": "spareEngineSale",
+              "engineDate": "asdf",
+              "modelNumber": "ABC00001",
+              "productLine": "LM2500",
+              "requestor": "adfsad",
+              "requestorComment": "asdfasdf",
+              "typeOfTransaction": "Spare Engine Sale",
+              "providerComment": "Please do needfull changes"
+            }           
+        },
+         
+        {
+          "active": false,
+          "name": "Engine Demand Request",
+          "code": "EDR",
+          "submited": false,
+          "formData": {
+            
+          } 
+        }
+        ]
+  }

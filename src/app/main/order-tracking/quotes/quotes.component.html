@@ -1,0 +1,28 @@
+<nz-table #basicTable [nzData]="listOfData">
+    <thead>
+      <tr>  
+        <th></th>      
+        <th>Quote ID</th>
+        <th>Requestor</th>
+        <th>Channel</th>
+        <th>Type of Transaction </th>
+        <th>Site</th>        
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>      
+      <tr *ngFor="let data of basicTable.data">
+        <td></td>
+        <td>{{ data.PO }}</td>
+        <td>{{ data.SO }}</td>
+        <td>{{ data.channel }}</td>
+        <td>{{ data.dateRequiredAt}}</td>
+        <td>{{ data.site }}</td>        
+        <td>
+          <button value="data.status" class="btn billed" *ngIf="data.status === 'billed'">Billed</button>
+          <button value="data.status" class="btn pending" *ngIf="data.status === 'pending'">Pending order</button>
+          <button value="data.status" class="btn shipped" *ngIf="data.status === 'shipped'">Shipped</button>
+        </td>                
+      </tr>
+    </tbody>
+  </nz-table>

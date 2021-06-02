@@ -1,0 +1,170 @@
+
+  <div class="form-continer">
+    <div class="dark-bg">
+      <!-- <form>
+        <div class="row">
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="Quote">Quote</label>
+              <input type="text" class="form-control" id="Quote" placeholder="XXXXXX">
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="poNeededBy">Po Needed by</label>
+              <input type="text" class="form-control" id="poNeededBy" placeholder="XXXXXX">
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="engineSupplyCommitDate">Engine Supply Commit date</label>
+              <input type="text" class="form-control" id="engineSupplyCommitDate" placeholder="XXXXXX">
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="quoteExplration">Quote Explration</label>
+              <input type="text" class="form-control" id="quoteExplration" placeholder="XXXXXX">
+            </div>
+          </div>
+        </div>        
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="providerComment">Provider Comment</label>
+              <textarea rows="5" class="form-control" id="providerComment" placeholder="XXXXXX"></textarea>
+            </div>
+          </div>
+          <div class="col-sm-6" *ngIf="formControls?.providerComment.value && quoteIssue?.role==='usedEngineRequestor'">
+            <div class="form-group">
+              <label for="providerComment">Provider Comment</label>
+              <textarea rows="5" class="form-control" id="providerComment" formControlName="providerComment" placeholder="XXXXXX"></textarea>
+            </div>
+          </div>          
+        </div>
+      </form> -->
+    
+      <form [formGroup]="quoteIssueForm">
+        <div class="row">
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="requestor">Requestor</label>
+              <input type="text" class="form-control" formControlName="requestor" id="requestor" placeholder="XXXXXX">
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="modelNumber">Model Number</label>
+              <select name="" id="modelNumber" class="form-control" formControlName="modelNumber">
+                <option value="ABC00001">ABC00001</option>
+                <option value="ABC00002">ABC00002</option>
+              </select>           
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="engineDate">Engine Date</label>
+              <input type="text" class="form-control" formControlName="engineDate" id="engineDate" placeholder="XXXXXX">
+            </div>
+          </div>
+          <div class="col-sm">
+            <label for="engineDate" class="d-block">Type of Transaction</label>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" formControlName="typeOfTransaction" name="typeOfTransaction" id="spareEngineSale"
+                value="Spare Engine Sale">
+              <label class="form-check-label" for="spareEngineSale">
+                Spare Engine sale
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" formControlName="typeOfTransaction" name="typeOfTransaction" id="engineExchange"
+                value="Engine Exchange">
+              <label class="form-check-label" for="engineExchange">
+                Engine Exchange
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="engineDate" class="d-block">Channel</label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="channel" name="channel" id="GE" value="spareEngineSale">
+                <label class="form-check-label" for="GE">
+                  GE
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="channel" name="channel" id="BH" value="BH">
+                <label class="form-check-label" for="BH">
+                  BH
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="engineDate" class="d-block">Product Line</label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" formControlName="productLine" type="radio" name="productLine" id="LM6000" value="LM6000">
+                <label class="form-check-label" for="LM6000">
+                  LM6000
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" formControlName="productLine" type="radio" name="productLine" id="LM2500" value="LM2500">
+                <label class="form-check-label" for="LM2500">
+                  LM2500
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="productLine" name="productLine" id="LMS100" value="LMS100">
+                <label class="form-check-label" for="LMS100">
+                  LMS100
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="productLine" name="productLine" id="LM9000" value="LM9000">
+                <label class="form-check-label" for="LM9000">
+                  LM9000
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="requestorComment">Requestor Comment</label>
+              <textarea rows="5" class="form-control" id="requestorComment" formControlName="requestorComment" placeholder="XXXXXX"></textarea>
+            </div>
+          </div>
+          <div class="col-sm-6" *ngIf="formControls?.providerComment.value && quoteIssue?.role==='usedEngineRequestor'">
+            <div class="form-group">
+              <label for="providerComment">Provider Comment</label>
+              <textarea rows="5" class="form-control" id="providerComment" formControlName="providerComment" placeholder="XXXXXX"></textarea>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <p class="quotation-msg" *ngIf="quoteIssueItem?.quotationCalculationMag">{{quoteIssueItem?.quotationCalculationMag}}</p>
+            </div>
+          </div>          
+        </div>
+      </form>
+    </div>
+    
+    <div class="button-set" *ngIf="quoteIssue?.role === 'usedEngineProvider'">
+      <button class="btn btn-success" value="approve" (click)="submit($event)"
+      [disabled]="!quoteIssueForm.valid"
+      >Approve</button>
+      <button class="btn btn-danger" data-toggle="modal" data-target="#commonModal" value="reject" 
+      [disabled]="!quoteIssueForm.valid"
+      value="reject" (click)="submit($event)">Reject</button>
+      <button class="btn btn-primary" data-toggle="modal" data-target="#commonModal" value="send" 
+      [disabled]="!quoteIssueForm.valid"
+      (click)="submit($event)">Send</button>
+    </div>
+  </div>  
+  <app-modal [modalInputData]="modalInputData" *ngIf="showModal"></app-modal>

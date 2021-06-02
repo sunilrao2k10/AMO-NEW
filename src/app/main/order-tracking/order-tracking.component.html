@@ -1,0 +1,47 @@
+<div class="table-wrap">
+  <div class="d-flex d-flex justify-content-between">
+    <h4>Order Tracking</h4>
+    <select name="" id="" class="default"
+    [(ngModel)]="orderTrakingType">    
+      <option value="orderTracking">Order Tracking</option>
+      <option value="quote">Quote</option>
+    </select>
+  </div> 
+
+  <nz-table *ngIf="orderTrakingType === 'orderTracking'" #basicTable [nzData]="listOfData">
+    <thead>
+      <tr>  
+        <th></th>      
+        <th>PO#</th>
+        <th>SO#</th>
+        <th>Channel</th>
+        <th>Date Required At </th>
+        <th>Site</th>
+        <th>ESN</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>      
+      <tr *ngFor="let data of basicTable.data">
+        <td></td>
+        <td>{{ data.PO }}</td>
+        <td>{{ data.SO }}</td>
+        <td>{{ data.channel }}</td>
+        <td>{{ data.dateRequiredAt}}</td>
+        <td>{{ data.site }}</td>
+        <td>{{ data.ESN }}</td>
+        <td>
+          <button (click)="onCheckStatus(data)" value="data.status" class="btn billed" *ngIf="data.status === 'billed'">Billed</button>
+          <button (click)="onCheckStatus(data)" value="data.status" class="btn pending" *ngIf="data.status === 'pending'">Pending order</button>
+          <button (click)="onCheckStatus(data)" value="data.status" class="btn shipped" *ngIf="data.status === 'shipped'">Shipped</button>
+          <button (click)="onCheckStatus(data)" value="data.status" class="btn billed" *ngIf="data.status === 'send'">Send</button>
+          <button (click)="onCheckStatus(data)" value="data.status" class="btn billed" *ngIf="data.status === 'reject'">Reject</button>
+          <button (click)="onCheckStatus(data)" value="data.status" class="btn billed" *ngIf="data.status === 'approved'">Approved</button>
+        </td>                
+      </tr>
+    </tbody>
+  </nz-table>
+
+<app-quotes *ngIf="orderTrakingType === 'quote'"></app-quotes>
+
+</div>

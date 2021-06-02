@@ -1,0 +1,156 @@
+@import "variable";
+@import "mixins";
+@import "global";
+
+header{
+    height: 100px;
+    background: linear-gradient(to right, #0068b7 0,#00bd75 100%);    
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0px 30px;
+    margin-bottom: 30px;
+}
+.steper{
+    display: flex;
+    margin: 20px 0;
+    div{ 
+        position: relative;              
+        span{
+            &.count{
+                width: 40px;
+                height: 40px;
+                border: 1px solid #9da3b0;
+                border-radius: 100%;
+                display: inline-block;
+                text-align: center;
+                line-height: 40px;            
+                z-index: 1;
+                position: absolute;
+                background: #e4e8ef;
+                left: -3px;
+                top: 0;
+                font-weight: 600;
+                color: #313438;
+            } 
+            + span{
+                border: 1px solid #9da3b0;
+                border-radius: 20px;
+                padding: 0 20px 0 50px;
+                height: 40px;               
+                display: flex;
+                align-items: center; 
+            }           
+        }
+        +div{
+            margin-left: 80px;            
+            &:after{
+                content: "";
+                width: 80px;
+                height: 1px;
+                position: absolute;
+                top: 50%;            
+                left: -81px;
+                background: #9da3b0;
+                z-index: 0;
+            }            
+        }
+        &.active{                       
+            span{
+                color: #fff;
+                &.count {
+                    background: #08ae80;                       
+                }  
+                + span{
+                    background: #148894;
+                }              
+            }
+        }
+    }
+}
+.container-fluid{
+    padding: 0 30px;    
+    min-height: 450px;
+}
+.card-body{
+    background: #dbdde0;
+}
+.main-tabs{
+    position: relative;
+    .tab-content{
+        border: 1px solid #99989a;
+        border-top: none;
+        padding: 10px;
+    }       
+    .nav-tabs {
+        border-bottom: 1px solid #99989a;       
+        .nav-link:focus, .nav-link:hover{
+            border-color: #99989a #99989a #99989a;
+        }
+        .nav-item.show .nav-link, .nav-link.active, .nav-link.route-active {
+            border-color: #99989a #99989a #fff;
+        }
+        .nav-link{
+            padding: 0.5rem 3rem;
+            
+        }        
+    }    
+}
+
+.roles {    
+    position: absolute;    
+    right: 0;
+    z-index: 1;
+}
+.accordion.used-eng-temp{
+    .ant-collapse{
+        background: none;
+        border: none;
+    }
+    .ant-collapse-content{
+        border-top: none;
+    }
+    .ant-collapse-content>.ant-collapse-content-box{
+        padding: 0 16px 16px 16px;
+    }
+    .ant-collapse>.ant-collapse-item {
+        border: 1px solid #999;
+        box-shadow: 2px 2px 5px #ccc;
+        margin-bottom: 10px;
+    }
+    .card-header{
+        padding: 0;
+        background: #fff;
+    }
+}
+/*quote Request*/
+.quote-request-head {
+    display: flex;
+    justify-content: space-between;
+}
+/*quote Request end*/
+/*footer*/
+footer {    
+    background: #1f6da8;
+    margin-top: 40px;
+    padding: 10px;    
+    font-size: 14px;
+    ul{
+        display: flex;
+        justify-content: flex-end;
+        li {
+            padding:0 20px;
+            color: $white;
+            a{
+                color: $white;
+                display: inline-block;
+                &:hover{
+                    color: $white;                    
+                }
+            }
+            + li{                
+                border-left: 1px solid $white;                
+            }
+        }
+    }
+}

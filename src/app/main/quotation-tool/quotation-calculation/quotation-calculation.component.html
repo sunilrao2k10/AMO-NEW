@@ -1,0 +1,146 @@
+<div class="form-continer">
+    <div class="dark-bg">
+      <form>
+        <div class="row">
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="requestor">Requestor</label>
+              <input type="text" class="form-control" id="requestor" placeholder="XXXXXX">
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+                <label for="engineDate" class="d-block">Channel</label>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="channel" id="GE" value="spareEngineSale">
+                  <label class="form-check-label" for="GE">
+                    GE
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="channel" id="BH" value="BH">
+                  <label class="form-check-label" for="BH">
+                    BH
+                  </label>
+                </div>
+              </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+                <label for="engineDate" class="d-block">CSA or TX</label>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="CSAorTX" id="CSA" value="CSA">
+                  <label class="form-check-label" for="CSA">CSA</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="CSAorTX" id="BH" value="TX">
+                  <label class="form-check-label" for="TX">TX</label>
+                </div>
+              </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="quoteIDNoReference">Quote ID No Reference </label>
+              <input type="text" class="form-control" id="quoteIDNoReference" placeholder="XXXXXX">
+            </div>
+          </div>
+        </div>        
+        <div class="row">
+          <div class="col-sm">
+            <div class="form-group">
+                <label for="engineDate" class="d-block">Product Line</label>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="productLine" id="LM6000" value="LM6000">
+                  <label class="form-check-label" for="LM6000">
+                    LM6000
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="productLine" id="LM2500" value="LM2500">
+                  <label class="form-check-label" for="LM2500">
+                    LM2500
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="productLine" id="LMS100" value="LMS100">
+                  <label class="form-check-label" for="LMS100">
+                    LMS100
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="productLine" id="LM9000" value="LM9000">
+                  <label class="form-check-label" for="LM9000">
+                    LM9000
+                  </label>
+                </div>
+              </div>
+          </div>   
+          <div class="col-sm">
+            <div class="form-group">
+                <label for="modelNumber">Model Number</label>
+                <select name="" id="modelNumber" class="form-control">
+                  <option value="">XXXXXX</option>
+                  <option value="">XXXXXX</option>
+                </select>           
+            </div>
+          </div> 
+          <div class="col-sm">
+            <div class="form-group">
+                <label for="engineDate" class="d-block">Type of Transaction</label>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="typeOfTransaction" id="spareEngineSale"
+                    value="spareEngineSale">
+                  <label class="form-check-label" for="spareEngineSale">
+                    Spare Engine sale
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="typeOfTransaction" id="engineExchange"
+                    value="engineExchange">
+                  <label class="form-check-label" for="engineExchange">
+                    Engine Exchange
+                  </label>
+                </div>
+              </div>            
+          </div> 
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="buybackESN">Buyback ESN</label>
+              <input type="text" class="form-control" id="buybackESN" placeholder="XXXXXX">
+            </div>
+          </div>         
+        </div>
+        <div class="row">
+            <div class="col-sm">
+              <div class="form-group">
+                <label for="dateBuybackwillReturnfromSite">Date Buyback will Return from Site</label>
+                <input type="text" class="form-control" id="dateBuybackwillReturnfromSite" placeholder="XXXXXX">
+              </div>
+            </div>   
+            <div class="col-sm">
+              <div class="form-group">
+                <label for="buybackTimeSinceNew">Buyback time Since New(TSN)</label>
+                <input type="text" class="form-control" id="buybackTimeSinceNew" placeholder="XXXXXX">
+              </div>
+            </div> 
+            <div class="col-sm">
+              <div class="form-group">
+                <label for="buybackStartstimeSinceNew">Buyback starts time Since new</label>
+                <input type="text" class="form-control" id="buybackStartstimeSinceNew" placeholder="XXXXXX">
+              </div>
+            </div> 
+            <div class="col-sm">
+              <div class="form-group">
+                <label for="buybacktimeSinceLastMajorOverhaul">Buyback time Since Last Major Overhaul</label>
+                <input type="text" class="form-control" id="buybacktimeSinceLastMajorOverhaul" placeholder="XXXXXX">
+              </div>
+            </div>         
+          </div>        
+      </form>
+    </div>
+    <p class="quotation-msg" *ngIf="showAmount">Your quotation amount is $1234</p>
+    <div class="button-set">
+      <button class="btn btn-primary" (click)="submit('calculate')">Calculate</button>     
+      <button class="btn btn-primary" (click)="submit('save')">Save</button>     
+    </div>
+  </div> 
