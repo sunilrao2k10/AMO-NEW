@@ -1,5 +1,5 @@
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 
 @Component({
   selector: 'app-quote-issue',
@@ -58,4 +58,8 @@ export class QuoteIssueComponent implements OnInit {
     this.showModal = true;
   }
 
+  quotationDetail(value: string): void{
+    this.showModal = true;
+    this.modalInputData.title = value;
+  }
 }
