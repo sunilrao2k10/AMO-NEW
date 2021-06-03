@@ -26,7 +26,9 @@ export class SubHeaderComponent implements OnInit {
      }
 
   ngOnInit(): void {
-    this.selectRole({target: {value : 'usedEngineRequestor'}});
+    this.selectRole(this.selectedRole);
+    // this.router.navigateByUrl('used-engine');
+
   }
 
   navigation(value: string): void{
@@ -35,7 +37,7 @@ export class SubHeaderComponent implements OnInit {
   }
 
   selectRole(event: any, option?: any): void{
-    this.selectedRole = event.target.value;
+    // this.selectedRole = event.target.value;
     this.baseService.selectedRole().subscribe((data) => {
       // for testing
       data.panel = data.panel.filter((item: any) => {

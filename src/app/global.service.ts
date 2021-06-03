@@ -18,13 +18,13 @@ export class GlobalService {
     this.roleDataSource.next(data);
   }
 
-  // For quote ID
-  get quoteIDSource$(): any {
-    return this.quoteIDSource.asObservable();
-  }
-  quoteIdUpdate(data: string): void {
-    this.quoteIDSource.next(data);
-  }
+  // // For quote ID
+  // get quoteIDSource$(): any {
+  //   return this.quoteIDSource.asObservable();
+  // }
+  // quoteIdUpdate(data: string): void {
+  //   this.quoteIDSource.next(data);
+  // }
 
   constructor() { }
 }

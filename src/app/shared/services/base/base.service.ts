@@ -19,7 +19,7 @@ export class BaseService {
   providerPending = 'assets/mock-json/providerPending.json';
   requestorPending = 'assets/mock-json/requestorPending.json';
   pendingProviderQuotationMsg = 'assets/mock-json/pendingProviderQuotationMsg.json';
-  roleData = '';
+
   constructor(private http: HttpClient) { }
 
   get(url: any): Observable<any>{

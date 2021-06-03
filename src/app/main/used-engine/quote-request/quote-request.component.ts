@@ -41,7 +41,6 @@ export class QuoteRequestComponent implements OnInit {
       channel: ['', [Validators.required]],
       productLine: ['', [Validators.required]],
       requestorComment: ['', [Validators.required]],
-      providerComment: [{value: '', disabled: true}]
     });
     this.formControls = this.quoteRequestForm.controls;
   }

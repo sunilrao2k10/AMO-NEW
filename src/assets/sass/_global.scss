@@ -41,6 +41,11 @@ label{
 	position: fixed;
 	top: 50%;
 	left: 50%;
+	z-index: 1;
+    background: #fff;    
+    border: 1px solid #009a91;
+    padding: 5px;
+    border-radius: 100%;
 }
 .table-wrap{
 	border: 1px solid #99989a;
@@ -202,7 +207,20 @@ label{
 	color: #14b800;
     font-weight: 600;
     margin-top: 10px;
-	a{
+	a {
 		color: #1f6da8;
+	}
+}
+.feedBackMsg {
+	background: #fff;
+    padding: 10px;
+    font-weight: 600;
+    color: #074e84;
+    font-size: 15px;
+	&.error {
+		color: #ae212a;
+	}
+	&.success{
+		color: #3bab21;
 	}
 }

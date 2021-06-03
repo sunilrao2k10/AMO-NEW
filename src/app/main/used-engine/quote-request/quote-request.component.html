@@ -108,12 +108,12 @@
             <textarea rows="5" class="form-control" id="requestorComment" formControlName="requestorComment" placeholder="XXXXXX"></textarea>
           </div>
         </div>
-        <div class="col-sm-6" *ngIf="formControls?.providerComment.value && quoteRequest?.role==='usedEngineRequestor'">
+        <div class="col-sm-6" *ngIf="quoteRequestItem?.providerComment && quoteRequest?.role==='usedEngineRequestor'">
           <div class="form-group">
             <label for="providerComment">Provider Comment</label>
-            <textarea rows="5" class="form-control" id="providerComment" formControlName="providerComment" placeholder="XXXXXX"></textarea>
+            <p class="feedBackMsg">{{quoteRequestItem?.providerComment}}</p>
           </div>
-        </div>
+        </div>        
       </div>
     </form>
   </div>  

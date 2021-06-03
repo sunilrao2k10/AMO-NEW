@@ -7,7 +7,8 @@
             "active": false,
             "name": "Quote Request",
             "code": "QR",
-            "submited": true,            
+            "submited": true, 
+            "isDisable": false,           
             "formData": {
                 "channel": "spareEngineSale",
                 "engineDate": "asdf",
@@ -19,10 +20,11 @@
             }
         },
         {
-            "active": false,
+            "active": true,
             "name": "Quote Issue",
             "code": "QI",
-            "submited": true,            
+            "submited": true,      
+            "isDisable": false,      
             "formData": {
                 "channel": "spareEngineSale",
                 "engineDate": "asdf",
@@ -38,6 +40,7 @@
             "name": "Engine Demand Request",
             "code": "EDR",
             "submited": false,
+            "isDisable": false,
             "formData": {
                 
             }

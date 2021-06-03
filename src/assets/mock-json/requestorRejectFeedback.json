@@ -8,6 +8,7 @@
       "name": "Quote Request",
       "code": "QR",
       "submited": true,
+      "isDisable": false,
       "formData": {
         "channel": "spareEngineSale",
         "engineDate": "asdf",
@@ -23,6 +24,8 @@
       "name": "Quote Issue",
       "code": "QI",
       "submited": true,
+      "isDisable": false,
+      "providerComment": "Reject meesage: Lorem imsum door set lorem imsum door set Lorem imsum door set lorem imsum door set",
       "formData": {
         "channel": "spareEngineSale",
         "engineDate": "asdf",
@@ -30,8 +33,7 @@
         "productLine": "LM2500",
         "requestor": "adfsad",
         "requestorComment": "asdfasdf",
-        "typeOfTransaction": "Spare Engine Sale",
-        "providerComment": "Quote is reject due to this reasion"
+        "typeOfTransaction": "Spare Engine Sale"
       }
     },
     {
@@ -39,6 +41,7 @@
       "name": "Engine Demand Request",
       "code": "EDR",
       "submited": false,
+      "isDisable": true,
       "formData": {
        
       }

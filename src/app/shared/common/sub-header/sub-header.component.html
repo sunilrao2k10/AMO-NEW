@@ -2,7 +2,9 @@
     <label for="" class="default">
         Roles:
     </label>
-    <select name="" id="" class="default" (change)="selectRole($event, 'onSelect')">
+    <select name="" id="" class="default" 
+    [(ngModel)]="selectedRole"
+    (change)="selectRole($event, 'onSelect')">
         <option value="usedEngineRequestor">Used Engine Requestor</option> 
         <option value="usedEngineProvider">Used Engine Provider</option>                               
         <option value="usedEngineBiller">Used Engine Biller</option>

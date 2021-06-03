@@ -53,7 +53,8 @@ export class UsedEngineComponent implements OnInit {
   }
 
   selectQuoteId(value: any): void{
-    this.globalService.quoteIdUpdate(value);
+
+    // this.globalService.quoteIdUpdate(value);
     // if (value === '3333'){
     //   this.baseService.quoteIDData().subscribe(data => {
     //     this.panels = data.panel;

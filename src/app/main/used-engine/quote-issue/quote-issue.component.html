@@ -140,15 +140,16 @@
               <textarea rows="5" class="form-control" id="requestorComment" formControlName="requestorComment" placeholder="XXXXXX"></textarea>
             </div>
           </div>
-          <div class="col-sm-6" *ngIf="formControls?.providerComment.value && quoteIssue?.role==='usedEngineRequestor'">
+          <div class="col-sm-6" *ngIf="quoteIssueItem?.providerComment && quoteIssue?.role==='usedEngineRequestor'">
             <div class="form-group">
               <label for="providerComment">Provider Comment</label>
-              <textarea rows="5" class="form-control" id="providerComment" formControlName="providerComment" placeholder="XXXXXX"></textarea>
+              <p class="feedBackMsg error">{{quoteIssueItem?.providerComment}}</p>
             </div>
           </div>
           <div class="col-sm-6">
             <div class="form-group">
-              <p class="quotation-msg" *ngIf="quoteIssueItem?.quotationCalculationMag">{{quoteIssueItem?.quotationCalculationMag}} 
+              <label for="">&nbsp;</label>
+              <p class="feedBackMsg success" *ngIf="quoteIssueItem?.quotationCalculationMag">{{quoteIssueItem?.quotationCalculationMag}} 
                 <a class="link" data-toggle="modal" data-target="#commonModal" value="Quotation Calculation" 
                 (click)="quotationDetail('Quotation Calculation')">
                 Details</a></p>

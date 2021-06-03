@@ -3,13 +3,18 @@
 @import "global";
 
 header{
-    height: 100px;
+    height: 74px;
     background: linear-gradient(to right, #0068b7 0,#00bd75 100%);    
     color: #fff;
     display: flex;
     align-items: center;
     padding: 0px 30px;
     margin-bottom: 30px;
+    .ge-logo {
+        height: 40px;
+        width: 200px;
+        background: transparent url('../images/logo.png') no-repeat center center;
+    }
 }
 .steper{
     display: flex;
@@ -70,7 +75,7 @@ header{
 }
 .container-fluid{
     padding: 0 30px;    
-    min-height: 450px;
+    min-height: 500px;
 }
 .card-body{
     background: #dbdde0;

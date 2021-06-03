@@ -4,15 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'used-engine',
     loadChildren: () => import('./main/used-engine/used-engine.module').then(m => m.UsedEngineModule)
   },
   {
     path: 'used-engine/:quoteID',
-    loadChildren: () => import('./main/used-engine/used-engine.module').then(m => m.UsedEngineModule)
-  },
-  {
-    path: 'used-engine',
     loadChildren: () => import('./main/used-engine/used-engine.module').then(m => m.UsedEngineModule)
   },
   {
@@ -26,7 +22,12 @@ const routes: Routes = [
   {
     path: 'quotation-tool',
     loadChildren: () => import('./main/quotation-tool/quotation-tool.module').then(m => m.QuotationToolModule)
-  }
+  },
+  {
+    path: '',
+    redirectTo: '/used-engine',
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({
