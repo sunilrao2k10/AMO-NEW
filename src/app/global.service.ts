@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class GlobalService {
-  roleData = '';
+  roleData = 'requestor';
   quoteID = '';
   public roleDataSource = new BehaviorSubject<any>(this.roleData);
   public quoteIDSource = new BehaviorSubject<any>(this.quoteID);

@@ -1,0 +1,121 @@
+<div class="form-continer">
+  <div class="dark-bg">
+    <form>
+      <div class="row">
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="finishedGoodsCost">Finished Goods Cost</label>
+            <input type="text" class="form-control" id="finishedGoodsCost" placeholder="XXXXXX">
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="estimatedFreightCost" class="d-block">Estimated Freight Cost</label>
+            <input type="text" class="form-control" id="estimatedFreightCost" placeholder="XXXXXX">
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="assetLocation" class="d-block">Asset location - Ready to ship</label>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="assetLocation" id="linkedfromsmartshet"
+                value="usedenginInventory">
+              <label class="form-check-label" for="linkedfromsmartshet">Linked from smartshet</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="assetLocation" id="usedenginInventory"
+                value="usedenginInventory">
+              <label class="form-check-label" for="usedenginInventory">Used engin inventory</label>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="quoteIDNoReference">Locator</label>
+            <input type="text" class="form-control" id="quoteIDNoReference" placeholder="XXXXXX">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="modelNumber">Model Number Shipped</label>
+            <select name="" id="modelNumberShiped" class="form-control">
+              <option value="ABC00001">ABC00001</option>
+              <option value="ABC00002">ABC00002</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="modelNumber">ESN</label>
+            <input type="text" class="form-control" id="ESN" placeholder="XXXXXX">
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="containerPartNumber" class="d-block">Container Part Number</label>
+            <input type="text" class="form-control" id="containerPartNumber" placeholder="XXXXXX">
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="containerSerialNumber">Container Serial Number</label>
+            <input type="text" class="form-control" id="containerSerialNumber" placeholder="XXXXXX">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="containerDimensions">Container Dimensions</label>
+            <input type="text" class="form-control" id="containerDimensions" placeholder="XXXXXX">
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="containerWeight">Container Weight</label>
+            <input type="text" class="form-control" id="containerWeight" placeholder="XXXXXX">
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="dateShipped">Date Shipped</label>
+            <input type="text" class="form-control" id="dateShipped" placeholder="XXXXXX">
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label for="buybackShipTolocation">Buyback Ship To location</label>
+            <input type="text" class="form-control" id="buybackShipTolocation" placeholder="XXXXXX">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label for="attentionTo">Attention to</label>
+            <input type="text" class="form-control" id="attentionTo" placeholder="XXXXXX">
+          </div>
+        </div>
+        <!-- <div class="col-sm">
+          <div class="form-group">
+          <label for="buybackStartSinceLastHotSection">Automatically Generate Draft BOL & Draft Ship Request</label>
+          <input type="text" class="form-control" id="buybackStartSinceLastHotSection" placeholder="XXXXXX">
+          </div>
+      </div>  -->
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label for="workorderNumber">Workorder/job Number</label>
+            <input type="text" class="form-control" id="workorderNumber" placeholder="XXXXXX">
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="button-set">
+    <button class="btn btn-success" value="approve" >Approve</button>
+    <button class="btn btn-danger" value="reject" >Reject</button>
+    <button class="btn btn-primary" value="send" >Send</button>
+  </div>
+</div>

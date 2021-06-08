@@ -1,6 +1,8 @@
-import { filter } from 'rxjs/operators';
-import { Component, Input, OnInit } from '@angular/core';
+
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { GlobalService } from 'src/app/global.service';
+import { Utility } from 'src/app/shared/functions/utility';
 
 @Component({
   selector: 'app-quote-request',
@@ -8,23 +10,47 @@ import { FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } fro
   styleUrls: ['./quote-request.component.scss']
 })
 export class QuoteRequestComponent implements OnInit {
+  roleName = '';
   quoteRequestForm: FormGroup;
   quoteRequestItem: any = {};
   formControls: any;
   selectedQuoteID = null;
-  @Input() quoteRequest: any;
-  constructor(private fb: FormBuilder){
-
-  }
-  ngOnInit(): void{
-    this.quoteRequestItem = this.quoteRequest.panel.find((item: { code: string; }) => item.code === 'QR');
-    this.initializeForm();
-    if (this.quoteRequest && this.quoteRequestItem.formData){
-      this.updateFormData(this.quoteRequestItem.formData);
+  // tslint:disable-next-line:variable-name
+  private _quoteRequest: any;
+  quoteRequestUpdated: any;
+  @Input() get quoteRequest(): any { return this._quoteRequest; }
+  set quoteRequest(input: any){
+    if (this._quoteRequest !== input) {
+      this.quoteRequestUpdated = input;
+      this.updateForm();
     }
-    const quoteState = '/\b(approve|pending|reject)\b/g';
-    if (this.quoteRequest.quoteState === 'approve' || this.quoteRequest.quoteState === 'pending' || this.quoteRequest.quoteState === 'reject'){
+  }
+  constructor(
+    private fb: FormBuilder,
+    private globalService: GlobalService,
+    ){}
+
+  ngOnInit(): void{
+    this.globalService.roleDataSource$.subscribe((data: any) => this.roleName = data);
+  }
+
+  /**
+   * Method to update value quote request form
+   * @method updateForm
+   */
+  updateForm(): void{
+    this.initializeForm();
+    const status = this.quoteRequestUpdated.quoteState;
+    if (this.quoteRequestUpdated && !Utility.isEmptyObj(this.quoteRequestUpdated.quoteRequest)){
+      this.quoteRequestItem = this.quoteRequestUpdated.quoteRequest;
+      this.updateFormData(this.quoteRequestItem);
+    }
+    if (this.quoteRequestUpdated.role === 'provider'){
       this.quoteRequestForm.disable();
+    } else if ( status === 'approve' || status === 'pending' || status === 'reject'){
+      this.quoteRequestForm.disable();
+    } else {
+      this.quoteRequestForm.enable();
     }
   }
 
@@ -49,8 +75,16 @@ export class QuoteRequestComponent implements OnInit {
     this.quoteRequestForm.patchValue(value);
   }
 
+  resetFormData(): void{
+    this.quoteRequestForm.reset();
+  }
+
   submit(): void{
-    console.log(this.quoteRequestForm.value);
+    const request = {
+      role: this.roleName,
+      quoteRequest: this.quoteRequestForm.value,
+    };
+    console.log(request);
     this.quoteRequestForm.disable();
   }
 }

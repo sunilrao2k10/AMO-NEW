@@ -1,34 +1,22 @@
 {
-    "status": true,
-    "message": "success",
-    "quoteState": "send",
-    "panel": [
-        {
-          "active": true,
-          "name": "Quote Request",
-          "code": "QR",
-          "submited": true,   
-          "isDisable": false,  
-          "providerComment": "Feedback meesage: Lorem imsum door set lorem imsum door set Lorem imsum door set lorem imsum door set",
-          "formData": {
-              "channel": "spareEngineSale",
-              "engineDate": "asdf",
-              "modelNumber": "ABC00001",
-              "productLine": "LM2500",
-              "requestor": "adfsad",
-              "requestorComment": "asdfasdf",
-              "typeOfTransaction": "Spare Engine Sale"              
-            }           
-        },         
-        {
-          "active": false,
-          "name": "Engine Demand Request",
-          "code": "EDR",
-          "submited": false,
-          "isDisable": true,
-          "formData": {
-            
-          } 
-        }
-        ]
+  "status": true,
+  "message": "success",
+  "data": {
+    "role": "requestor",
+    "quoteState": "sendback",
+    "currentQueue": "Quote Issue",
+    "comment": "Send Feedback: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the",
+    "quoteRequest": {
+      "channel": "spareEngineSale",
+      "engineDate": "asdf",
+      "modelNumber": "ABC00001",
+      "productLine": "LM2500",
+      "requestor": "adfsad",
+      "requestorComment": "asdfasdf",
+      "typeOfTransaction": "Spare Engine Sale"
+    },
+    "quoteIssue": {
+     
+    }
   }
+}

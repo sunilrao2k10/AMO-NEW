@@ -4,10 +4,10 @@
     </label>
     <select name="" id="" class="default" 
     [(ngModel)]="selectedRole"
-    (change)="selectRole($event, 'onSelect')">
-        <option value="usedEngineRequestor">Used Engine Requestor</option> 
-        <option value="usedEngineProvider">Used Engine Provider</option>                               
-        <option value="usedEngineBiller">Used Engine Biller</option>
+    (change)="selectRole('onSelect')">
+        <option value="requestor">Used Engine Requestor</option> 
+        <option value="provider">Used Engine Provider</option>                               
+        <option value="biller">Used Engine Biller</option>
     </select>
     <!-- <nz-select nzPlaceHolder="Select a Role" [(ngModel)]="selectedRole">
         <nz-option nzLabel="Admin" nzValue="admin"></nz-option>
@@ -19,7 +19,7 @@
         <a [ngClass]="routerActiveTab==='used-engine' ? 'nav-link active': 'nav-link'" id="used-engine-tab" data-toggle="tab" href="#used-engine" (click)="navigation('used-engine')" role="tab"
             aria-controls="used-engine" aria-selected="true">Used Engine</a>
     </li>    
-    <li  *ngIf="selectedRole === 'usedEngineProvider'">
+    <li  *ngIf="selectedRole === 'provider'">
         <a [ngClass]="routerActiveTab ==='data-management' ? 'nav-link active': 'nav-link'" id="data-management-tab" data-toggle="tab" href="#data-management"  (click)="navigation('data-management')" role="tab"
             aria-controls="data-management" aria-selected="false">Data Management</a>
     </li>
@@ -27,7 +27,7 @@
         <a [ngClass]="routerActiveTab ==='order-tracking' ? 'nav-link active': 'nav-link'" id="order-tracking-tab" data-toggle="tab" href="#order-tracking" (click)="navigation('order-tracking')" role="tab"
             aria-controls="order-tracking" aria-selected="false">Order Tracking</a>
     </li>
-    <li class="nav-item" *ngIf="selectedRole === 'usedEngineProvider'">
+    <li class="nav-item" *ngIf="selectedRole === 'provider'">
         <a [ngClass]="routerActiveTab ==='quotation-tool' ? 'nav-link active': 'nav-link'" id="quotation-tool-tab" data-toggle="tab" href="#quotation-tool" (click)="navigation('quotation-tool')" role="tab"
             aria-controls="order-tracking" aria-selected="false">Quotation Tool</a>
     </li>

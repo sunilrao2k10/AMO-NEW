@@ -1,5 +1,25 @@
 {
     "status": true,
     "message": "success",
-    "quoteIdCollection": [1000,1111,2222,3333,4444,5555]
+    "quoteIdCollection": [
+      {
+        "name": "pending",
+        "value": 1000 
+      },
+      {
+        "name": "approve",
+        "value": 1111 
+      },
+      {
+        "name": "sendback",
+        "value": 2222 
+      },
+      {
+        "name": "reject",
+        "value": 3333 
+      },
+      {
+        "name": "quotation-cal",
+        "value": 4444 
+      }]
   }

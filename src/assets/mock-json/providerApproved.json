@@ -1,50 +1,28 @@
 {
     "status": true,
     "message": "success",
-    "quoteState": "approve",
-    "panel": [
-        {
-            "active": false,
-            "name": "Quote Request",
-            "code": "QR",
-            "submited": true,
-            "formData": {
-                "channel": "spareEngineSale",
-                "engineDate": "asdf",
-                "modelNumber": "ABC00001",
-                "productLine": "LM2500",
-                "requestor": "adfsad",
-                "requestorComment": "asdfasdf",
-                "typeOfTransaction": "Spare Engine Sale"
-            }
-        },
-        {
-            "active": true,
-            "name": "Quote Issue",
-            "code": "QI",
-            "submited": false,
-            "formData": {}
-        },
-        {
-            "active": false,
-            "name": "Engine Demand Request",
-            "code": "EDR",
-            "submited": false,
-            "formData": {}
-        },        
-        {
-            "active": false,
-            "name": "PN Confirmation",
-            "code": "PNC",
-            "submited": false,
-            "formData": {}
-        },
-        {
-            "active": false,
-            "name": "Billing",
-            "code": "BIL",
-            "submited": false,
-            "formData": {}
-        }
-    ]
-}
+    "data": {
+      "role": "provider",
+      "quoteState": "approve",
+      "currentQueue": "Engine Demand Request",
+      "comment": "",
+      "quoteRequest": {
+        "channel": "spareEngineSale",
+        "engineDate": "asdf",
+        "modelNumber": "ABC00001",
+        "productLine": "LM2500",
+        "requestor": "adfsad",
+        "requestorComment": "asdfasdf",
+        "typeOfTransaction": "Spare Engine Sale"
+      },
+      "quoteIssue": {
+        "channel": "spareEngineSale",
+        "engineDate": "asdf",
+        "modelNumber": "ABC00001",
+        "productLine": "LM2500",
+        "requestor": "adfsad",
+        "requestorComment": "asdfasdf",
+        "typeOfTransaction": "Spare Engine Sale"
+      }
+    }
+  }

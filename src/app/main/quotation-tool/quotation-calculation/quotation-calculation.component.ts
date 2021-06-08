@@ -33,7 +33,6 @@ export class QuotationCalculationComponent implements OnInit {
       this.showAmount = true;
     }
     if (value === 'save'){
-      debugger;
       this.router.navigate(['/used-engine'], { queryParams: { quoteID: this.selectedQuoteID} });
     }
   }

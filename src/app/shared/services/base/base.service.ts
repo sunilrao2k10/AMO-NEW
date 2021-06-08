@@ -1,13 +1,14 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject, Subject } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BaseService {
-  roleUrl =  'assets/mock-json/quote-request.json';
-  quoteId =  'assets/mock-json/quoteID.json';
+  roleUrl = 'assets/mock-json/quote-request.json';
+  quoteId = 'assets/mock-json/quoteID.json';
   quoteIdData = 'assets/mock-json/quoteIDCollection.json';
   quoteIdDataShiped = 'assets/mock-json/quoteIdDataShiped.json';
   requestSendFeedback = 'assets/mock-json/requestorSendFeedback.json';
@@ -22,12 +23,39 @@ export class BaseService {
 
   constructor(private http: HttpClient) { }
 
-  get(url: any): Observable<any>{
-    return this.http.get(url);
+  /**
+   * Post data to server
+   * @method post
+   */
+  post(url: string, data: any, option: any = {}, loader: boolean = true): Observable<any> {
+    const headers = new HttpHeaders({ 'Content-Type': 'text/plain' });
+    return this.http.post(url, data, { ...option, headers })
+      .pipe(map((res: any) => {
+        return res;
+      }))
+      .pipe(catchError(this.handleError));
   }
 
-  selectedRole(): Observable<any>{
-    return this.get(this.roleUrl);
+  /**
+   * Get data from server
+   * @method get
+   */
+  get(url: string, loader: boolean = true, options = {}): Observable<any> {
+    const headers = new HttpHeaders({ 'Content-Type': 'text/plain' });
+    options = { options, headers };
+    return this.http.get(url, options)
+      .pipe(map((res: any) => {
+        return res;
+      }))
+      .pipe(catchError(this.handleError));
+  }
+
+  /**
+   * Error handler callback
+   * @method handleError
+   */
+   public handleError(error: any): Promise<any> {
+    return Promise.reject(error.message || error);
   }
 
   selectedQuteID(): Observable<any> {
@@ -38,32 +66,32 @@ export class BaseService {
     return this.get(this.quoteIdData);
   }
 
-  quoteIDDataShiped(value?: any): Observable<any>{
-    if (value === 'approve'){
+  quoteIDDataShiped(value?: any): Observable<any> {
+    if (value === 'approve') {
       return this.get(this.requestorApproved);
     }
-    if (value === 'approveProvider'){
+    if (value === 'approveProvider') {
       return this.get(this.providerApproved);
     }
-    if (value === 'pending'){
+    if (value === 'pending') {
       return this.get(this.requestorPending);
     }
-    if (value === 'pendingProvider'){
+    if (value === 'pendingProvider') {
       return this.get(this.providerPending);
     }
-    if (value === 'pendingProviderQuotationMsg'){
+    if (value === 'pendingProviderQuotationMsg') {
       return this.get(this.pendingProviderQuotationMsg);
     }
-    if (value === 'send'){
+    if (value === 'send') {
       return this.get(this.requestSendFeedback);
     }
-    if (value === 'sendProvider'){
+    if (value === 'sendProvider') {
       return this.get(this.providerSendFeedback);
     }
-    if (value === 'reject'){
+    if (value === 'reject') {
       return this.get(this.requestorRejectFeedback);
     }
-    if (value === 'rejectProvider'){
+    if (value === 'rejectProvider') {
       return this.get(this.providerRejectFeedback);
     }
     return this.get(this.quoteIdDataShiped);

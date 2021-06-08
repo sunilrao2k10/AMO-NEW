@@ -86,6 +86,7 @@ header{
         border: 1px solid #99989a;
         border-top: none;
         padding: 10px;
+        background: #fff;
     }       
     .nav-tabs {
         border-bottom: 1px solid #99989a;       
@@ -114,6 +115,7 @@ header{
     }
     .ant-collapse-content{
         border-top: none;
+        background: #e4e8ef;
     }
     .ant-collapse-content>.ant-collapse-content-box{
         padding: 0 16px 16px 16px;
@@ -122,6 +124,7 @@ header{
         border: 1px solid #999;
         box-shadow: 2px 2px 5px #ccc;
         margin-bottom: 10px;
+        background: #e4e8ef;
     }
     .card-header{
         padding: 0;

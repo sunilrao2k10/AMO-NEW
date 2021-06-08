@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sub-header.component.scss']
 })
 export class SubHeaderComponent implements OnInit {
-  selectedRole: any = 'usedEngineRequestor';
+  selectedRole: any = 'requestor';
   routerActiveTab = '';
   constructor(
     private router: Router,
@@ -26,7 +26,7 @@ export class SubHeaderComponent implements OnInit {
      }
 
   ngOnInit(): void {
-    this.selectRole(this.selectedRole);
+    this.selectRole();
     // this.router.navigateByUrl('used-engine');
 
   }
@@ -36,22 +36,11 @@ export class SubHeaderComponent implements OnInit {
     this.router.navigateByUrl(value);
   }
 
-  selectRole(event: any, option?: any): void{
-    // this.selectedRole = event.target.value;
-    this.baseService.selectedRole().subscribe((data) => {
-      // for testing
-      data.panel = data.panel.filter((item: any) => {
-        if (this.selectedRole === 'usedEngineRequestor' || this.selectedRole === 'usedEngineBiller'){
-          return item.code === 'QR' || item.code === 'EDR';
-        } else {
-          return item;
-        }
-      });
-      data.role = this.selectedRole;
-      // for testing end
-      console.log(data);
-      this.globalService.roleDataUpdated(data);
-    });
+  selectRole(option?: any): void{
+    this.globalService.roleDataUpdated(this.selectedRole);
+    // this.baseService.selectedRole().subscribe((data) => {
+    //   this.globalService.roleDataUpdated(data);
+    // });
     if (option){
       this.router.navigateByUrl('used-engine');
     }

@@ -1,50 +1,28 @@
 {
   "status": true,
   "message": "success",
-  "quoteState": "reject",
-  "panel": [
-    {
-      "active": false,
-      "name": "Quote Request",
-      "code": "QR",
-      "submited": true,
-      "isDisable": false,
-      "formData": {
-        "channel": "spareEngineSale",
-        "engineDate": "asdf",
-        "modelNumber": "ABC00001",
-        "productLine": "LM2500",
-        "requestor": "adfsad",
-        "requestorComment": "asdfasdf",
-        "typeOfTransaction": "Spare Engine Sale"
-      }
+  "data": {
+    "role": "requestor",
+    "quoteState": "reject",
+    "currentQueue": "Engine Demand Request",
+    "comment": "Send Feedback: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the",
+    "quoteRequest": {
+      "channel": "spareEngineSale",
+      "engineDate": "asdf",
+      "modelNumber": "ABC00001",
+      "productLine": "LM2500",
+      "requestor": "adfsad",
+      "requestorComment": "asdfasdf",
+      "typeOfTransaction": "Spare Engine Sale"
     },
-    {
-      "active": true,
-      "name": "Quote Issue",
-      "code": "QI",
-      "submited": true,
-      "isDisable": false,
-      "providerComment": "Reject meesage: Lorem imsum door set lorem imsum door set Lorem imsum door set lorem imsum door set",
-      "formData": {
-        "channel": "spareEngineSale",
-        "engineDate": "asdf",
-        "modelNumber": "ABC00001",
-        "productLine": "LM2500",
-        "requestor": "adfsad",
-        "requestorComment": "asdfasdf",
-        "typeOfTransaction": "Spare Engine Sale"
-      }
-    },
-    {
-      "active": false,
-      "name": "Engine Demand Request",
-      "code": "EDR",
-      "submited": false,
-      "isDisable": true,
-      "formData": {
-       
-      }
+    "quoteIssue": {
+      "channel": "spareEngineSale",
+      "engineDate": "asdf",
+      "modelNumber": "ABC00001",
+      "productLine": "LM2500",
+      "requestor": "adfsad",
+      "requestorComment": "asdfasdf",
+      "typeOfTransaction": "Spare Engine Sale"
     }
-  ]
+  }
 }

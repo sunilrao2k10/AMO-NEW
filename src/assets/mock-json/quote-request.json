@@ -1,57 +1,28 @@
 {
-    "status": true,
-    "message": "success",   
-    "role": "usedEnginRequstor", 
+  "status": true,
+  "message": "success",
+  "data": {
+    "role": "requestor",
     "quoteState": "new",
-    "panel": [{
-        "active": false,
-        "name": "Quote Request",
-        "code": "QR",
-        "submited": false,
-        "isDisable": false,
-        "formData": {
-
-        }           
-      },
-      {
-        "active": false,
-        "name": "Quote Issue",
-        "code": "QI",
-        "submited": false,
-        "isDisable": false,
-        "formData": {
-          
-        } 
-      },
-      {
-        "active": false,
-        "name": "Engine Demand Request",
-        "code": "EDR",
-        "submited": false,
-        "isDisable": true,
-        "formData": {
-          
-        } 
-      },
-      {
-        "active": false,
-        "name": "PN Confirmation",
-        "code": "PNC",
-        "submited": false,
-        "isDisable": true,
-        "formData": {
-          
-        } 
-      },
-      {
-        "active": false,
-        "name": "Billing",
-        "code": "BIL",
-        "submited": false,
-        "isDisable": true,
-        "formData": {
-          
-        } 
-      }
-    ]
+    "currentQueue": "Engine Demand Request",
+    "comment": "",
+    "quoteRequest": {
+      "channel": "spareEngineSale",
+      "engineDate": "asdf",
+      "modelNumber": "ABC00001",
+      "productLine": "LM2500",
+      "requestor": "adfsad",
+      "requestorComment": "asdfasdf",
+      "typeOfTransaction": "Spare Engine Sale"
+    },
+    "quoteIssue": {
+      "channel": "spareEngineSale",
+      "engineDate": "asdf",
+      "modelNumber": "ABC00001",
+      "productLine": "LM2500",
+      "requestor": "adfsad",
+      "requestorComment": "asdfasdf",
+      "typeOfTransaction": "Spare Engine Sale"
+    }
   }
+}

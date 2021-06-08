@@ -8,6 +8,9 @@ a{
 		text-decoration: none;
 	}
 }
+body {
+	background: #fcfbfd;
+}
 .form-control:focus {
     color: #495057;
     background-color: none;
@@ -110,7 +113,7 @@ label{
 	overflow-y: auto;
     overflow-x: hidden;
 	.dark-bg{
-		background: #e4e8ef;
+		background: #fff;
 		padding: 10px;
 		margin-top: 10px;
 		.form-control{
@@ -141,6 +144,9 @@ label{
 	.button-set{
 		margin-top: 10px;
 		button{
+			&:disabled{
+				cursor: not-allowed;
+			}
 			+ button{
 				margin-left: 10px;
 			}
@@ -213,7 +219,7 @@ label{
 }
 .feedBackMsg {
 	background: #fff;
-    padding: 10px;
+    padding: 10px 0;
     font-weight: 600;
     color: #074e84;
     font-size: 15px;

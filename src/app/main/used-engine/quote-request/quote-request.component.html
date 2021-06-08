@@ -1,5 +1,5 @@
 <div class="quote-request-head">
-  <button type="button" class="btn btn-primary" *ngIf="quoteRequest?.role === 'usedEngineRequestor'">New Quote ID</button>
+  <button type="button" class="btn btn-primary" *ngIf="roleName === 'requestor'">New Quote ID</button>
   <!-- <div>
     <label for="" class="default">Quote ID: </label>
     <nz-select nzPlaceHolder="Select a Quote ID" [(ngModel)]="selectedQuoteID">
@@ -108,16 +108,16 @@
             <textarea rows="5" class="form-control" id="requestorComment" formControlName="requestorComment" placeholder="XXXXXX"></textarea>
           </div>
         </div>
-        <div class="col-sm-6" *ngIf="quoteRequestItem?.providerComment && quoteRequest?.role==='usedEngineRequestor'">
+        <div class="col-sm-6" *ngIf="quoteRequestUpdated?.comment && quoteRequestUpdated?.role==='requestor'">
           <div class="form-group">
             <label for="providerComment">Provider Comment</label>
-            <p class="feedBackMsg">{{quoteRequestItem?.providerComment}}</p>
+            <p class="feedBackMsg">{{quoteRequestUpdated?.comment}}</p>
           </div>
         </div>        
       </div>
     </form>
   </div>  
-  <div class="button-set" *ngIf="quoteRequest?.role === 'usedEngineRequestor'">
+  <div class="button-set" *ngIf="roleName === 'requestor'">
     <button class="btn btn-primary" [disabled]="!quoteRequestForm.valid" (click)="submit()">Submit</button>
   </div>
 </div>

@@ -7,10 +7,12 @@ import { NgZorroAntdModule } from '../../ng-zorro/ng-zorro-antd.module';
 import {
   QuoteRequestComponent, UsedEngineComponent,
   QuoteIssueComponent,
-  PNConfirmationComponent,
+  ENConfirmationComponent,
   EngineDemandRequestComponent,
   BillingComponent,
+  UsedEngineService
 } from './index';
+import { provideRoutes } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,7 @@ import {
     UsedEngineComponent,
     QuoteIssueComponent,
     EngineDemandRequestComponent,
-    PNConfirmationComponent,
+    ENConfirmationComponent,
     BillingComponent,
   ],
   imports: [
@@ -28,7 +30,8 @@ import {
     UsedEngineRoutingModule,
     SharedModule,
     NgZorroAntdModule,
-  ]
+  ],
+  providers: [UsedEngineService]
 })
 export class UsedEngineModule {
 

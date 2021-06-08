@@ -1,5 +1,8 @@
+import { GlobalService } from './../../../global.service';
+import { BaseService } from './../../../shared/services/base/base.service';
+import { Utility } from './../../../shared/functions/utility';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Component, Input, OnInit, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 
 @Component({
   selector: 'app-quote-issue',
@@ -7,7 +10,8 @@ import { Component, Input, OnInit, TemplateRef, ViewChild, ViewContainerRef } fr
   styleUrls: ['./quote-issue.component.scss']
 })
 export class QuoteIssueComponent implements OnInit {
-  @Input() quoteIssue: any;
+  @Output() formSubmited = new EventEmitter();
+  roleName = '';
   quoteIssueItem: any = {};
   modalInputData = {
     title: 'Approve',
@@ -17,19 +21,40 @@ export class QuoteIssueComponent implements OnInit {
   selectedQuoteID = null;
   quoteIssueForm: FormGroup;
   formControls: any;
-  constructor(private fb: FormBuilder) { }
-
-  ngOnInit(): void {
-    this.quoteIssueItem = this.quoteIssue.panel.find((item: { code: string; }) => item.code === 'QI');
-    this.initializeForm();
-    if (this.quoteIssue && this.quoteIssueItem.formData){
-      this.updateFormData(this.quoteIssueItem.formData);
-    }
-    if (this.quoteIssue.quoteState === 'approve' || this.quoteIssue.quoteState === 'reject'){
-      this.quoteIssueForm.disable();
+  // tslint:disable-next-line:variable-name
+  private _quoteIssue: any;
+  quoteIssueUpdated: any;
+  @Input() get quoteIssue(): any { return this._quoteIssue; }
+  set quoteIssue(input: any){
+    if (this._quoteIssue !== input) {
+      this.quoteIssueUpdated = input;
+      this.updateForm();
     }
   }
+  constructor(
+    private fb: FormBuilder,
+    private baseService: BaseService,
+    private globalService: GlobalService
+    ) { }
 
+  ngOnInit(): void {
+    this.globalService.roleDataSource$.subscribe((data: any) => this.roleName = data);
+  }
+
+  updateForm(): void{
+    this.initializeForm();
+    const status = this.quoteIssueUpdated.quoteState;
+    if (this.quoteIssueUpdated && !Utility.isEmptyObj(this.quoteIssueUpdated.quoteIssue)){
+      this.quoteIssueItem = this.quoteIssueUpdated.quoteIssue;
+      this.updateFormData(this.quoteIssueItem);
+    }
+    if ( status === 'approve' || status === 'reject' || status === 'sendback'){
+      this.quoteIssueForm.disable();
+    } else {
+      this.quoteIssueForm.enable();
+      this.quoteIssueForm.reset();
+    }
+  }
   /**
    * Method to define Quote request info form group
    * @method initializeForm
@@ -43,7 +68,6 @@ export class QuoteIssueComponent implements OnInit {
       channel: ['', [Validators.required]],
       productLine: ['', [Validators.required]],
       requestorComment: ['', [Validators.required]],
-      providerComment: [{value: '', disabled: true}]
     });
     this.formControls = this.quoteIssueForm.controls;
   }
@@ -52,10 +76,25 @@ export class QuoteIssueComponent implements OnInit {
     this.quoteIssueForm.patchValue(value);
   }
 
+  resetFormData(): void{
+    this.quoteIssueForm.reset();
+  }
+
   submit(event: any): void{
+    const request = {
+      role: 'provider',
+      quoteID: '1111',
+      quoteIssue: this.quoteIssueForm.value
+    };
     const value = event.target.value;
+    if (value === 'approve') {
+      this.baseService.quoteIDDataShiped('approveProvider').subscribe(data => {
+        this.formSubmited.emit(data);
+      });
+    }
     this.modalInputData.title = value;
     this.showModal = true;
+    // this.quoteIssueForm.disable();
   }
 
   quotationDetail(value: string): void{

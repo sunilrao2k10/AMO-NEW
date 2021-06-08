@@ -140,16 +140,16 @@
               <textarea rows="5" class="form-control" id="requestorComment" formControlName="requestorComment" placeholder="XXXXXX"></textarea>
             </div>
           </div>
-          <div class="col-sm-6" *ngIf="quoteIssueItem?.providerComment && quoteIssue?.role==='usedEngineRequestor'">
+          <div class="col-sm-6" *ngIf="quoteIssueUpdated?.comment && quoteIssueUpdated?.role==='requestor'">
             <div class="form-group">
               <label for="providerComment">Provider Comment</label>
-              <p class="feedBackMsg error">{{quoteIssueItem?.providerComment}}</p>
+              <p class="feedBackMsg error">{{quoteIssueUpdated?.comment}}</p>
             </div>
           </div>
-          <div class="col-sm-6">
+          <div class="col-sm-6" *ngIf="quoteIssueUpdated?.quotationTool && quoteIssueUpdated?.role==='provider'">
             <div class="form-group">
               <label for="">&nbsp;</label>
-              <p class="feedBackMsg success" *ngIf="quoteIssueItem?.quotationCalculationMag">{{quoteIssueItem?.quotationCalculationMag}} 
+              <p class="feedBackMsg success">{{quoteIssueUpdated?.quotationTool?.comment}} 
                 <a class="link" data-toggle="modal" data-target="#commonModal" value="Quotation Calculation" 
                 (click)="quotationDetail('Quotation Calculation')">
                 Details</a></p>
@@ -159,7 +159,8 @@
       </form>
     </div>
     
-    <div class="button-set" *ngIf="quoteIssue?.role === 'usedEngineProvider'">
+    
+    <div class="button-set" *ngIf="quoteIssueUpdated?.role === 'provider'">
       <button class="btn btn-success" value="approve" (click)="submit($event)"
       [disabled]="!quoteIssueForm.valid"
       >Approve</button>
