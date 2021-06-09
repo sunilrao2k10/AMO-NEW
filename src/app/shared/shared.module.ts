@@ -1,6 +1,7 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { NgZorroAntdModule } from '../ng-zorro/ng-zorro-antd.module';
 import {
   HeaderComponent,
   FooterComponent,
@@ -30,7 +31,8 @@ import { ModalComponent } from './common/modal/modal.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgZorroAntdModule
   ],
   providers: [BaseService]
 })

@@ -32,6 +32,7 @@ export class QuoteRequestComponent implements OnInit {
 
   ngOnInit(): void{
     this.globalService.roleDataSource$.subscribe((data: any) => this.roleName = data);
+    this.initializeForm();
   }
 
   /**
@@ -39,17 +40,20 @@ export class QuoteRequestComponent implements OnInit {
    * @method updateForm
    */
   updateForm(): void{
-    this.initializeForm();
-    const status = this.quoteRequestUpdated.quoteState;
-    if (this.quoteRequestUpdated && !Utility.isEmptyObj(this.quoteRequestUpdated.quoteRequest)){
+    const quoteRequest = this.quoteRequestUpdated.quoteRequest;
+    if (!Utility.isEmptyObj(quoteRequest)){
+      const status = this.quoteRequestUpdated.quoteState;
       this.quoteRequestItem = this.quoteRequestUpdated.quoteRequest;
       this.updateFormData(this.quoteRequestItem);
-    }
-    if (this.quoteRequestUpdated.role === 'provider'){
-      this.quoteRequestForm.disable();
-    } else if ( status === 'approve' || status === 'pending' || status === 'reject'){
-      this.quoteRequestForm.disable();
-    } else {
+      if (this.quoteRequestUpdated.role === 'provider'){
+        this.quoteRequestForm.disable();
+      } else if (status === 'approve' || status === 'pending' || status === 'reject'){
+        this.quoteRequestForm.disable();
+      } else {
+        this.quoteRequestForm.enable();
+      }
+    } else if (this.quoteRequestForm) {
+      this.quoteRequestForm.reset();
       this.quoteRequestForm.enable();
     }
   }

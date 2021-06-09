@@ -1,7 +1,7 @@
 import { GlobalService } from './../../../global.service';
 import { BaseService } from './../../../shared/services/base/base.service';
 import { Utility } from './../../../shared/functions/utility';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 
 @Component({
@@ -12,6 +12,7 @@ import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild,
 export class QuoteIssueComponent implements OnInit {
   @Output() formSubmited = new EventEmitter();
   roleName = '';
+  providerComment = '';
   quoteIssueItem: any = {};
   modalInputData = {
     title: 'Approve',
@@ -39,20 +40,38 @@ export class QuoteIssueComponent implements OnInit {
 
   ngOnInit(): void {
     this.globalService.roleDataSource$.subscribe((data: any) => this.roleName = data);
+    this.initializeForm();
   }
 
   updateForm(): void{
-    this.initializeForm();
-    const status = this.quoteIssueUpdated.quoteState;
-    if (this.quoteIssueUpdated && !Utility.isEmptyObj(this.quoteIssueUpdated.quoteIssue)){
+    const quoteIssue = this.quoteIssueUpdated.quoteIssue;
+    if (!Utility.isEmptyObj(quoteIssue)){
+      const status = this.quoteIssueUpdated.quoteState;
       this.quoteIssueItem = this.quoteIssueUpdated.quoteIssue;
       this.updateFormData(this.quoteIssueItem);
-    }
-    if ( status === 'approve' || status === 'reject' || status === 'sendback'){
-      this.quoteIssueForm.disable();
-    } else {
-      this.quoteIssueForm.enable();
+      if ( status === 'approve' || status === 'reject' || status === 'sendback'){
+        this.quoteIssueForm.disable();
+      } else {
+        this.quoteIssueForm.enable();
+      }
+    } else if (this.quoteIssueForm) {
       this.quoteIssueForm.reset();
+      this.quoteIssueForm.enable();
+    }
+
+  }
+
+  disableForm(): void{
+    const control = Object.keys(this.quoteIssueForm.controls);
+    for (const item of control){
+      this.quoteIssueForm.controls[item].disable();
+    }
+  }
+
+  enableForm(): void{
+    const control = Object.keys(this.quoteIssueForm.controls);
+    for (const item of control){
+      this.quoteIssueForm.controls[item].enable();
     }
   }
   /**
@@ -80,21 +99,28 @@ export class QuoteIssueComponent implements OnInit {
     this.quoteIssueForm.reset();
   }
 
-  submit(event: any): void{
+  submit(comment?: any): void{
     const request = {
-      role: 'provider',
+      role: this.roleName,
       quoteID: '1111',
+      comment: comment || '',
       quoteIssue: this.quoteIssueForm.value
     };
+    console.log(request);
+    this.baseService.quoteIDDataShiped('approveProvider').subscribe(data => {
+      this.formSubmited.emit(data);
+    });
+    this.quoteIssueForm.disable();
+  }
+
+  sendBack(event: any): void{
     const value = event.target.value;
-    if (value === 'approve') {
-      this.baseService.quoteIDDataShiped('approveProvider').subscribe(data => {
-        this.formSubmited.emit(data);
-      });
-    }
     this.modalInputData.title = value;
-    this.showModal = true;
-    // this.quoteIssueForm.disable();
+    this.showModal =  true ;
+  }
+
+  submitSendback(event: any): void{
+    this.submit(event);
   }
 
   quotationDetail(value: string): void{

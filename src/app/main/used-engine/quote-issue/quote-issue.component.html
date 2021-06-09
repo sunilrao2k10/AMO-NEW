@@ -161,53 +161,17 @@
     
     
     <div class="button-set" *ngIf="quoteIssueUpdated?.role === 'provider'">
-      <button class="btn btn-success" value="approve" (click)="submit($event)"
+      <button class="btn btn-success" value="approve" (click)="submit()"
       [disabled]="!quoteIssueForm.valid"
       >Approve</button>
       <button class="btn btn-danger" data-toggle="modal" data-target="#commonModal" value="reject" 
       [disabled]="!quoteIssueForm.valid"
-      value="reject" (click)="submit($event)">Reject</button>
+      value="reject" (click)="sendBack($event)">Reject</button>
       <button class="btn btn-primary" data-toggle="modal" data-target="#commonModal" value="send" 
       [disabled]="!quoteIssueForm.valid"
-      (click)="submit($event)">Send</button>
+      (click)="sendBack($event)">Send</button>
     </div>
   </div>  
 
-  <app-modal [modalInputData]="modalInputData" *ngIf="showModal">
-    <table class="table" #table>
-      <thead>
-        <tr>
-          <th scope="col">#PO</th>
-          <th scope="col">SO</th>
-          <th scope="col">Channel</th>
-          <th scope="col">Modal Number</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>XXXXXX</td>
-            <td>XXXXXX</td>
-            <td>XXXXXX</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>XXXXXX</td>
-            <td>XXXXXX</td>
-            <td>XXXXXX</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>XXXXXX</td>
-          <td>XXXXXX</td>
-          <td>XXXXXX</td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="form-continer" #form>                
-      <div class="form-group">
-          <label for="">Comment</label>
-          <textarea class="form-control" placeholder="Enter Comment"></textarea>
-      </div>
-    </div>
+  <app-modal (formData)="submitSendback($event)" [modalInputData]="modalInputData" *ngIf="showModal">
   </app-modal>

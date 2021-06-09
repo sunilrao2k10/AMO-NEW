@@ -1,6 +1,7 @@
 <div class="table-wrap">
   <div class="d-flex d-flex justify-content-between">
     <h4>Order Tracking</h4>
+    <button class="btn btn-billed" (click)="exportexcel()">Expor to Excel</button>
     <select name="" id="" class="default"
     [(ngModel)]="orderTrakingType">    
       <option value="orderTracking">Order Tracking</option>
@@ -8,7 +9,7 @@
     </select>
   </div> 
 
-  <nz-table *ngIf="orderTrakingType === 'orderTracking'" #basicTable [nzData]="listOfData">
+  <nz-table id="excel-table" *ngIf="orderTrakingType === 'orderTracking'" #basicTable [nzData]="listOfData">
     <thead>
       <tr>  
         <th></th>      
