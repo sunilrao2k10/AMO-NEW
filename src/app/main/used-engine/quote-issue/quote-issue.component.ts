@@ -116,6 +116,7 @@ export class QuoteIssueComponent implements OnInit {
   sendBack(event: any): void{
     const value = event.target.value;
     this.modalInputData.title = value;
+    this.modalInputData.type = 'sendback';
     this.showModal =  true ;
   }
 
@@ -126,5 +127,6 @@ export class QuoteIssueComponent implements OnInit {
   quotationDetail(value: string): void{
     this.showModal = true;
     this.modalInputData.title = value;
+    this.modalInputData.type = 'quotationCalculation';
   }
 }

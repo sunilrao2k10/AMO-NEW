@@ -1,0 +1,16 @@
+{
+  "status": true,
+  "message": "success",
+  "data": {
+    "role": "requestor",
+    "quoteState": "new",
+    "currentQueue": "Quote Request",
+    "comment": "",
+    "quoteRequest": {
+
+    },
+    "quoteIssue": {
+      
+    }
+  }
+}

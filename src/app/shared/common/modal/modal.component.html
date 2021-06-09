@@ -10,7 +10,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <table class="table" *ngIf="modalInputData?.title == 'Quotation Calculation'">
+
+        <table class="table" *ngIf="modalInputData?.type == 'quotationCalculation'">
           <thead>
             <tr>
               <th scope="col">#PO</th>
@@ -40,14 +41,33 @@
             </tr>
           </tbody>
         </table>
-        <div class="form-continer" *ngIf="modalInputData?.title !== 'Quotation Calculation'">
+
+        <div class="form-continer" *ngIf="modalInputData?.type == 'sendback'">
           <div class="form-group">
             <label for="">Comment</label>
             <textarea [(ngModel)]="providerComment" class="form-control" placeholder="Enter Comment"></textarea>
           </div>
         </div>
 
-        <div class="modal-footer" *ngIf="modalInputData?.title !== 'Quotation Calculation'">
+        <div class="form-continer add-column-wrap" *ngIf="modalInputData?.type == 'addColumn'">
+          <div class="form-group">
+            <label for="">Select the option to make updated in the column</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="options" id="addColumns" value="Add Columns">
+              <label class="form-check-label" for="Add Columns">
+                Add Columns
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="options" id="LM2500" value=" Modify Columns">
+              <label class="form-check-label" for="Modify Columns">
+                Modify Columns
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer" *ngIf="modalInputData?.type !== 'quotationCalculation'">
           <button type="button" class="btn btn-primary" value="send" (click)="submit($event)">Save </button>
           <button type="button" class="btn btn-primary" #closeModal data-dismiss="modal">Close</button>
         </div>

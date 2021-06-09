@@ -2,11 +2,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject, Subject } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-
+import * as XLSX from 'xlsx';
 @Injectable({
   providedIn: 'root'
 })
 export class BaseService {
+  default = 'assets/mock-json/default.json';
   roleUrl = 'assets/mock-json/quote-request.json';
   quoteId = 'assets/mock-json/quoteID.json';
   quoteIdData = 'assets/mock-json/quoteIDCollection.json';
@@ -58,6 +59,21 @@ export class BaseService {
     return Promise.reject(error.message || error);
   }
 
+  exportexcel(tableId: string, fileName: string): void {
+    /* table id is passed over here */
+    const element = document.getElementById(tableId);
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+    /* save to file */
+    XLSX.writeFile(wb, fileName);
+  }
+
+
+
   selectedQuteID(): Observable<any> {
     return this.get(this.quoteId);
   }
@@ -67,6 +83,9 @@ export class BaseService {
   }
 
   quoteIDDataShiped(value?: any): Observable<any> {
+    if (value === 'default') {
+      return this.get(this.default);
+    }
     if (value === 'approve') {
       return this.get(this.requestorApproved);
     }

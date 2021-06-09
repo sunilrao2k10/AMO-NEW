@@ -1,7 +1,7 @@
 import { UsedEngineService } from './services/used-engine.service';
 import { GlobalService } from './../../global.service';
 import { BaseService } from './../../shared/services/base/base.service';
-import { Component, OnInit} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { Router, Event, NavigationEnd, ActivatedRoute } from '@angular/router';
 import * as global from './panels';
 
@@ -18,6 +18,7 @@ export class UsedEngineComponent implements OnInit {
   panels: any[] = [];
   response: any = {};
   roleName = '';
+  // not @ViewChild('pannelTemp', {static: false}) pannelTemp: ElementRef;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -39,15 +40,15 @@ export class UsedEngineComponent implements OnInit {
 
   ngOnInit(): void {
     this.quoteIdCollection();
-    this.createDefaultPanels();
+    // this.createDefaultPanels();
   }
 
   createDefaultPanels(): void{
+    // const panelCollection = JSON.parse(JSON.stringify(this.panelDefaultValue));
     this.panels = this.panelDefaultValue.map((item: any) => {
         item.disabled = item.code === 'QR' && this.roleName === 'requestor' ? false : true;
         return item;
     });
-    console.log(this.panels);
   }
 
   roleDataSource(): void{

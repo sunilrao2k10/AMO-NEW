@@ -17,7 +17,6 @@ export class ModalComponent implements OnInit {
   }
 
   submit(value: any): void{
-    console.log(this.providerComment);
     this.formData.emit(this.providerComment);
     this.closeModal.nativeElement.click();
     // this.providerComment;

@@ -50,6 +50,16 @@ label{
     padding: 5px;
     border-radius: 100%;
 }
+.table-header{
+	display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+	button{
+		+ button{
+			margin-left: 15px;
+		}
+	}
+}
 .table-wrap{
 	border: 1px solid #99989a;
 	margin: 10px;
@@ -206,7 +216,23 @@ label{
 	.modal-footer{
 		border: none;
 		justify-content: flex-start;
-		padding-top: 0;
+		padding-left: 0;
+		padding-bottom:0;
+	}
+	.add-column-wrap{
+		min-height: 100px;		
+		.form-group{
+			font-size: 14px;
+			> label{
+				margin-bottom:15px;
+			}
+		}
+		.form-check{
+			margin-bottom: 5px;
+		}
+		label{
+			text-transform: capitalize;
+		}
 	}
 }
 /* Modal end */

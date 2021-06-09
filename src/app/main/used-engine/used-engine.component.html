@@ -19,7 +19,7 @@
 
  <div class="accordion used-eng-temp">
   <nz-collapse nzAccordion>
-    <nz-collapse-panel *ngFor="let panel of panels" [nzHeader]="panel.name" [nzActive]="panel.active" [nzDisabled]="panel?.disabled">
+    <nz-collapse-panel #pannelTemp *ngFor="let panel of panels" [nzHeader]="panel.name" [nzActive]="panel.active" [nzDisabled]="panel?.disabled">
         <app-quote-request [quoteRequest]="response" *ngIf="panel.code === 'QR'"></app-quote-request>            
         <app-quote-issue (formSubmited)="formData($event)" [quoteIssue]="response" *ngIf="panel.code === 'QI'"></app-quote-issue>
         <app-engine-demand-request [engineDemandRequest]="response" *ngIf="panel.code === 'EDR'"></app-engine-demand-request>
