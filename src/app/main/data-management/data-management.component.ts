@@ -70,17 +70,6 @@ export class DataManagementComponent implements OnInit {
     this.baseService.exportexcel(tableId, fileName);
   }
 
-  checkForEdit(name: string): boolean | any{
-    let output;
-    for (const item of this.listColoum){
-      if (item.name === name && item.isEditable){
-        output = true;
-      } else {
-        output = false;
-      }
-    }
-  }
-
   startEdit(id: number): void {
     this.editId = id;
   }
