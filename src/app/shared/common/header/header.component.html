@@ -3,10 +3,17 @@
         <span  class="ge-logo navbar-brand"></span> | AMO
     </div>
     <div>
-        <nz-select ngModel="Vinod">
+        <!-- <nz-select ngModel="Vinod">
             <nz-option nzValue="Vinod" nzLabel="Vinod Rawat"></nz-option>
             <nz-option nzValue="Logout" nzLabel="Logout"></nz-option>
-        </nz-select>
-        <!-- <i nz-icon nzType="setting" nzTheme="outline"></i> -->
+        </nz-select> -->
+        <div class="dropdown show admin-dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Vinod Rawat
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="#">Logout</a>
+            </div>
+         </div>
     </div>
 </header>

@@ -9,7 +9,7 @@ export class GlobalService {
   quoteID = '';
   public roleDataSource = new BehaviorSubject<any>(this.roleData);
   public quoteIDSource = new BehaviorSubject<any>(this.quoteID);
-
+  public isLoading = new BehaviorSubject<boolean>(false);
   // For update role
   get roleDataSource$(): any {
     return this.roleDataSource.asObservable();
@@ -18,6 +18,13 @@ export class GlobalService {
     this.roleDataSource.next(data);
   }
 
+  // For loder api
+  get loader$(): any {
+    return this.isLoading.asObservable();
+  }
+  loaderUpdate(data: boolean): void {
+    this.isLoading.next(data);
+  }
   // // For quote ID
   // get quoteIDSource$(): any {
   //   return this.quoteIDSource.asObservable();

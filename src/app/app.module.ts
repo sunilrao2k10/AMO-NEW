@@ -8,6 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtHttpInterceptor } from './jwt-http.interceptor';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,18 @@ import { RouterModule } from '@angular/router';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     RouterModule,
     AppRoutingModule,
     SharedModule,
   ],
-  providers: [GlobalService],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtHttpInterceptor,
+      multi: true
+    },
+    GlobalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

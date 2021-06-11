@@ -1,5 +1,7 @@
 import { BaseService } from './../../shared/services/base/base.service';
 import { Component, OnInit } from '@angular/core';
+import { Utility } from 'src/app/shared/functions/utility';
+import { NumberFormatStyle } from '@angular/common';
 
 @Component({
   selector: 'app-data-management',
@@ -19,15 +21,19 @@ export class DataManagementComponent implements OnInit {
     },
     {
       name: 'age',
-      isEditable: true,
+      isEditable: false,
     },
     {
       name: 'address',
-      isEditable: false,
+      isEditable: true,
     },
     {
       name: 'others',
       isEditable: false,
+    },
+    {
+      name: 'newColumnLast',
+      isEditable: true
     }
   ];
   listOfData = [
@@ -36,32 +42,40 @@ export class DataManagementComponent implements OnInit {
       name: 'Edward King 1',
       age: '32',
       address: 'London, Park Lane no',
-      other: 'Lorem impsum door set 1'
+      other: 'Lorem impsum door set 1',
+      newColumn: 'new Lorem impsum door set 1',
+      newColumnLast: 'new Lorem impsum door set 1'
     },
     {
       id: 2,
       name: 'Edward King 2',
       age: '32',
       address: 'London, Park Lane no',
-      other: 'Lorem impsum door set 2'
+      other: 'Lorem impsum door set 2',
+      newColumn: 'new Lorem impsum door set 1',
+      newColumnLast: 'new Lorem impsum door set 1'
     },
     {
       id: 3,
       name: 'Edward King 3',
       age: '32',
       address: 'London, Park Lane no',
-      other: 'Lorem impsum door set 3'
+      other: 'Lorem impsum door set 3',
+      newColumn: 'new Lorem impsum door set 1',
+      newColumnLast: 'new Lorem impsum door set 1'
     },
     {
       id: 4,
       name: 'Edward King 4',
       age: '32',
       address: 'London, Park Lane no',
-      other: 'Lorem impsum door set 4'
+      other: 'Lorem impsum door set 4',
+      newColumn: 'new Lorem impsum door set 1',
+      newColumnLast: 'new Lorem impsum door set 1'
     }
   ];
-  editId: number | null = null;
 
+  editId: number | null = null;
 
   constructor(private baseService: BaseService){
   }
@@ -79,16 +93,16 @@ export class DataManagementComponent implements OnInit {
   }
 
   addRow(index: number): void {
+    const newRowData: any = Utility.objKeys(this.listOfData[0]);
+
     this.listOfData = [
       ...this.listOfData,
-      {
-        id: index + 2,
-        name: 'add new',
-        age: '32',
-        address: 'London, Park Lane no.',
-        other: 'add new lorem'
-      }
+      newRowData
     ];
+  }
+
+  isEdit(keyName: string): boolean{
+    return this.listColoum.some(item => item.name === keyName && item.isEditable);
   }
 
   addColumn(event: any): void{

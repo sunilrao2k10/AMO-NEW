@@ -11,6 +11,8 @@ export class ModalComponent implements OnInit {
   @Input() modalInputData: any;
   @Output() formData = new EventEmitter();
   providerComment = '';
+  isExisting = false;
+  isModify = false;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -23,6 +25,17 @@ export class ModalComponent implements OnInit {
     // if (this.modalInputData.type === 'send'){
     //   this.router.navigate(['/used-engine'], { queryParams: { quoteID: '1111'}});
     // }
+  }
+
+  checkAction(event: any): void{
+    const value = event.target.value;
+    if (value === 'Add Columns'){
+      this.isExisting = true;
+      this.isModify = false;
+    } else if (value === 'Modify Columns'){
+      this.isModify = true;
+      this.isExisting = false;
+    }
   }
 
 }

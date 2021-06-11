@@ -8,50 +8,23 @@
   <nz-table id="table-excel-export" #editRowTable nzBordered [nzData]="listOfData">
     <thead>
       <tr>
-        <th *ngFor="let item of listColoum">{{item.name}}</th>
+        <th *ngFor="let head of editRowTable.data[0] | keyvalue">{{head.key}}</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let data of editRowTable.data; let i=index" class="editable-row">
-        <td>{{data.id}}</td>
-        <td>
-          <!-- <div *ngIf="checkForEdit('name')">
+      <tr *ngFor="let data of editRowTable.data; let lastRow = last; let i=index" class="editable-row">
+        <td *ngFor="let list of data | keyvalue; let last = last">
+          <div *ngIf="isEdit(list.key); else notEdit">
             <div class="editable-cell" [hidden]="editId === data.id" (click)="startEdit(data.id)">
-              {{ data.name }}
+              {{ list.value }}
             </div>
-            <input [hidden]="editId !== data.id" type="text" nz-input [(ngModel)]="data.name" (blur)="stopEdit()" />
-          </div> -->
-          <div>
-            {{data.name}}
+            <input [hidden]="editId !== data.id" type="text" nz-input [(ngModel)]="list.value" (blur)="stopEdit()" />
           </div>
-        </td>
-        <td>
-          <!-- <div *ngIf="checkForEdit('age')">
-            <div class="editable-cell" [hidden]="editId === data.id" (click)="startEdit(data.id)">
-              {{ data.age }}
-            </div>
-            <input [hidden]="editId !== data.id" type="text" nz-input [(ngModel)]="data.age" (blur)="stopEdit()" />
-          </div> -->
-          <div>
-            {{data.age}}
-          </div>
-        </td>
-
-        <td>
-          <!-- <div>
-            <div class="editable-cell" [hidden]="editId === data.id" (click)="startEdit(data.id)">
-              {{ data.address }}
-            </div>
-            <input [hidden]="editId !== data.id" type="text" nz-input [(ngModel)]="data.address" (blur)="stopEdit()" />
-          </div> -->
-          <div>
-            {{data.address}}
-          </div>
-        </td>
-        <td>
-          {{data.other}}  
-          <button (click)='addRow(i)' class="btn btn-primery" *ngIf="i === editRowTable.data.length-1">Add</button>
-        </td>
+          <ng-template #notEdit>
+            {{list.value}}
+          </ng-template>
+          <button (click)='addRow(i)' class="btn btn-primery" *ngIf="lastRow && last">Add</button>
+        </td> 
       </tr>
     </tbody>
   </nz-table>

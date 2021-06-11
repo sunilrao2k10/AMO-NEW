@@ -7,7 +7,8 @@ import {
   FooterComponent,
   SubHeaderComponent,
   BaseService,
-  SpinnerComponent
+  SpinnerComponent,
+  KeysPipe
 } from './index';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from './common/modal/modal.component';
@@ -18,7 +19,8 @@ import { ModalComponent } from './common/modal/modal.component';
     FooterComponent,
     SubHeaderComponent,
     SpinnerComponent,
-    ModalComponent
+    ModalComponent,
+    KeysPipe
   ],
   exports: [
     HeaderComponent,
@@ -26,6 +28,7 @@ import { ModalComponent } from './common/modal/modal.component';
     SubHeaderComponent,
     SpinnerComponent,
     ModalComponent,
+    KeysPipe
   ],
   imports: [
     CommonModule,
