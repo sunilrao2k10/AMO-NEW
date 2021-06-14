@@ -1,0 +1,49 @@
+
+<div class="d-flex">
+    <h4 class="heading-h4 ml-10">Admin</h4>
+</div> 
+<div class="table-wrap">  
+    <nz-table id="excel-table" #basicTable [nzData]="listOfAdmin">
+      <thead>
+        <tr>       
+          <th>user name</th>
+          <th>user ID</th>
+          <th>Email Address</th>
+          <th>Role </th>
+          <th>Channel Requested</th>
+          <th>Channel Access Provided</th>
+          <th>Comments</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>      
+        <tr *ngFor="let data of basicTable.data">
+          <td>{{ data.username }}</td>
+          <td>{{ data.userID }}</td>
+          <td>{{ data.emailAddress }}</td>
+          <td>
+              <select class="default" name="role" id="role">
+                  <option value="">Select role</option>
+                  <option value="">Admin</option>
+                  <option value="">Sub admin</option>
+              </select>
+          </td>
+          <td>{{ data.channelRequested }}</td>
+          <td>
+            <select class="default" name="channelAccessProvided" id="channelAccessProvided">
+                <option value="">Select channel</option>
+                <option value="">Power</option>
+                <option value="">Break</option>
+                <option value="">JV</option>
+            </select>
+          </td>
+          <td>{{ data.comment }}</td>
+          <td>
+              <i class="bi bi-trash-fill fs-16 cl-error"></i>
+              <i class="bi bi-check-circle-fill fs-16 cl-success"></i>
+            </td>               
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+  

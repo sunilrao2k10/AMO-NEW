@@ -24,6 +24,10 @@ const routes: Routes = [
     loadChildren: () => import('./main/quotation-tool/quotation-tool.module').then(m => m.QuotationToolModule)
   },
   {
+    path: 'admin',
+    loadChildren: () => import('./main/admin/admin.module').then(m => m.AdminModule)
+  },
+  {
     path: '',
     redirectTo: '/used-engine',
     pathMatch: 'full'

@@ -3,8 +3,8 @@
 <app-header></app-header>
 <div class="container-fluid">
     <div class="main-tabs">
-        <app-sub-header></app-sub-header>
-        <div class="tab-content" id="myTabContent">
+        <app-sub-header [routerActiveTab]="routerActiveTab" *ngIf="subHeaderActive"></app-sub-header>
+        <div id="myTabContent" [ngClass]="!subHeaderActive ? 'tab-content header-acive': 'tab-content'">
             <div class="tab-pane fade show active" id="used-engine" role="tabpanel" aria-labelledby="used-engine-tab">
                 <router-outlet></router-outlet>
             </div>            

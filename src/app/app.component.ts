@@ -8,7 +8,9 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  routerActiveTab: any = '';
   title = 'AMO';
+  subHeaderActive = true;
   loading = false;
   constructor(private router: Router, private http: HttpClient, private globalService: GlobalService) {
     router.events.subscribe((routerEvent: Event) => {
@@ -17,6 +19,9 @@ export class AppComponent implements OnInit {
       }
       if (routerEvent instanceof NavigationEnd) {
         this.loading = false;
+        const currentTree = router.url.substring(1).split('?');
+        this.routerActiveTab = currentTree[0];
+        this.subHeaderActive = routerEvent.url === '/admin' ? false : true;
       }
     });
     this.loader();

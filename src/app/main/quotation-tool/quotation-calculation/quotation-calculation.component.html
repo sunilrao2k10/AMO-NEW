@@ -2,7 +2,7 @@
   <label for="" class="default">Quote ID: </label>
   <select class="default" name="" id="" [(ngModel)]="selectedQuoteID"> 
    <option value="Select Quote ID">Select Quote ID</option>    
-    <option data="" value="{{item}}" type="" *ngFor="let item of quoteIdList">{{item}}</option>
+    <option data="" value="{{item.value}}" type="" *ngFor="let item of quoteIdList">{{item.value}}-{{item.name}}</option>
   </select>
  <!-- <nz-select nzPlaceHolder="Select a Quote ID" (ngModelChange)="selectQuoteId()" [(ngModel)]="selectedQuoteID">
    <nz-option nzLabel="{{item}}" *ngFor="let item of quoteIdList" nzValue="{{item}}"></nz-option>  

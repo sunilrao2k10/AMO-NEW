@@ -1,3 +1,4 @@
+$font-sizes: 12, 14, 16, 18, 20;
 @mixin border-radius($radius) {
     -webkit-border-radius: $radius;
     -moz-border-radius: $radius;
@@ -16,4 +17,11 @@
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
+}
+
+// font css
+@each $font-size in $font-sizes {
+  .fs-#{$font-size} {
+    font-size: #{$font-size}px;
+  }
 }

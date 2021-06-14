@@ -14,7 +14,6 @@ import { QuotationCalculationComponent } from './quotation-calculation/quotation
     SharedModule,
     ReactiveFormsModule,
     FormsModule,
-    SharedModule,
     QuotationToolRoutingModule
   ]
 })

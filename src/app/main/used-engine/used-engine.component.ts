@@ -1,7 +1,7 @@
 import { UsedEngineService } from './services/used-engine.service';
 import { GlobalService } from './../../global.service';
 import { BaseService } from './../../shared/services/base/base.service';
-import { Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import { Router, Event, NavigationEnd, ActivatedRoute } from '@angular/router';
 import * as global from './panels';
 
@@ -9,7 +9,7 @@ import * as global from './panels';
   selector: 'app-used-engine',
   templateUrl: './used-engine.component.html',
 })
-export class UsedEngineComponent implements OnInit {
+export class UsedEngineComponent implements OnInit, OnDestroy {
   roleDataSubscription: any;
   selectedQuoteID = 'Select Quote ID';
   quoteIdList: any[] = [];
@@ -18,6 +18,7 @@ export class UsedEngineComponent implements OnInit {
   panels: any[] = [];
   response: any = {};
   roleName = '';
+  roleDataSourceSubcribe: any;
   // not @ViewChild('pannelTemp', {static: false}) pannelTemp: ElementRef;
   constructor(
     private router: Router,
@@ -44,15 +45,17 @@ export class UsedEngineComponent implements OnInit {
   }
 
   createDefaultPanels(): void{
-    // const panelCollection = JSON.parse(JSON.stringify(this.panelDefaultValue));
+    this.panelDefaultValue = JSON.parse(JSON.stringify(global.PanelName));
     this.panels = this.panelDefaultValue.map((item: any) => {
         item.disabled = item.code === 'QR' && this.roleName === 'requestor' ? false : true;
         return item;
     });
+    this.response = {};
+    this.stepName = JSON.parse(JSON.stringify(global.stepName));
   }
 
   roleDataSource(): void{
-    this.globalService.roleDataSource$.subscribe((data: any) => {
+    this.roleDataSourceSubcribe = this.globalService.roleDataSource$.subscribe((data: any) => {
       this.roleName = data;
       this.selectedQuoteID = 'Select Quote ID';
       this.createDefaultPanels();
@@ -167,5 +170,7 @@ export class UsedEngineComponent implements OnInit {
   //   });
   //   console.log(event.target.value);
   // }
-
+  ngOnDestroy(): void{
+    this.roleDataSourceSubcribe.unsubscribe();
+  }
 }
