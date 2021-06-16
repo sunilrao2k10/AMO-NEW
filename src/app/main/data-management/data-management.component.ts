@@ -1,7 +1,7 @@
 import { BaseService } from './../../shared/services/base/base.service';
 import { Component, OnInit } from '@angular/core';
 import { Utility } from 'src/app/shared/functions/utility';
-import { NumberFormatStyle } from '@angular/common';
+import { KeyValue, NumberFormatStyle } from '@angular/common';
 
 @Component({
   selector: 'app-data-management',
@@ -10,6 +10,7 @@ import { NumberFormatStyle } from '@angular/common';
 })
 export class DataManagementComponent implements OnInit {
   modalInputData: any = {};
+  showModal = false;
   listColoum = [
     {
       name: 'id',
@@ -31,10 +32,6 @@ export class DataManagementComponent implements OnInit {
       name: 'others',
       isEditable: false,
     },
-    {
-      name: 'newColumnLast',
-      isEditable: true
-    }
   ];
   listOfData = [
     {
@@ -43,8 +40,6 @@ export class DataManagementComponent implements OnInit {
       age: '32',
       address: 'London, Park Lane no',
       other: 'Lorem impsum door set 1',
-      newColumn: 'new Lorem impsum door set 1',
-      newColumnLast: 'new Lorem impsum door set 1'
     },
     {
       id: 2,
@@ -52,8 +47,6 @@ export class DataManagementComponent implements OnInit {
       age: '32',
       address: 'London, Park Lane no',
       other: 'Lorem impsum door set 2',
-      newColumn: 'new Lorem impsum door set 1',
-      newColumnLast: 'new Lorem impsum door set 1'
     },
     {
       id: 3,
@@ -61,8 +54,6 @@ export class DataManagementComponent implements OnInit {
       age: '32',
       address: 'London, Park Lane no',
       other: 'Lorem impsum door set 3',
-      newColumn: 'new Lorem impsum door set 1',
-      newColumnLast: 'new Lorem impsum door set 1'
     },
     {
       id: 4,
@@ -70,12 +61,14 @@ export class DataManagementComponent implements OnInit {
       age: '32',
       address: 'London, Park Lane no',
       other: 'Lorem impsum door set 4',
-      newColumn: 'new Lorem impsum door set 1',
-      newColumnLast: 'new Lorem impsum door set 1'
     }
   ];
 
   editId: number | null = null;
+
+  originalOrder = (a: KeyValue<number, string>, b: KeyValue<number, string>): number => {
+    return 0;
+  }
 
   constructor(private baseService: BaseService){
   }
@@ -92,13 +85,11 @@ export class DataManagementComponent implements OnInit {
     this.editId = null;
   }
 
-  addRow(index: number): void {
-    const newRowData: any = Utility.objKeys(this.listOfData[0]);
-
-    this.listOfData = [
-      ...this.listOfData,
-      newRowData
-    ];
+  addRow(event: any): void {
+    this.showModal = true;
+    this.modalInputData.title = event.target.value;
+    this.modalInputData.type = 'addRow';
+    this.modalInputData.formFields = Utility.objKeys(this.listOfData[0]);
   }
 
   isEdit(keyName: string): boolean{
@@ -106,8 +97,10 @@ export class DataManagementComponent implements OnInit {
   }
 
   addColumn(event: any): void{
+    this.showModal = true;
     this.modalInputData.title = event.target.value;
     this.modalInputData.type = 'addColumn';
+    this.modalInputData.existingColumns = Object.keys(this.listOfData[0]);
   }
 
   ngOnInit(): void {

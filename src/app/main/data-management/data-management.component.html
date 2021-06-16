@@ -22,11 +22,11 @@
           <ng-template #notEdit>
             {{list.value}}
           </ng-template>
-          <button (click)='addRow(i)' class="btn btn-primery" *ngIf="lastRow && last">Add</button>
+          <button (click)='addRow($event)' value="Add Row" data-toggle="modal" data-target="#commonModal" class="btn btn-primery" *ngIf="lastRow && last">Add</button>
         </td> 
       </tr>
     </tbody>
   </nz-table>
 </div>
 
-<app-modal [modalInputData]="modalInputData"></app-modal>
+<app-modal *ngIf="showModal" [modalInputData]="modalInputData"></app-modal>

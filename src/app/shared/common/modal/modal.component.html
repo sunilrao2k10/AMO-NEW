@@ -53,13 +53,15 @@
           <div class="form-group">
             <label for="">Select the option to make updated in the column</label>
             <div class="form-check">
-              <input class="form-check-input" id="Add Columns" (change)="checkAction($event)" type="radio" name="options"  value="Add Columns">
+              <input class="form-check-input" id="Add Columns" (change)="checkAction($event)" type="radio"
+                name="options" value="Add Columns">
               <label class="form-check-label" for="Add Columns">
                 Add Columns
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" id="Modify Columns" (change)="checkAction($event)" type="radio" name="options"  value="Modify Columns">
+              <input class="form-check-input" id="Modify Columns" (change)="checkAction($event)" type="radio"
+                name="options" value="Modify Columns">
               <label class="form-check-label" for="Modify Columns">
                 Modify Columns
               </label>
@@ -80,12 +82,7 @@
             <div class="existing-columns">
               <strong>Existing Columns</strong>
               <ul>
-                <li>XXXXXX</li>
-                <li>XXXXXX</li>
-                <li>XXXXXX</li>
-                <li>XXXXXX</li>
-                <li>XXXXXX</li>
-                <li>XXXXXX</li>
+                <li *ngFor="let item of modalInputData?.existingColumns">{{item | uppercase}}</li>
               </ul>
             </div>
           </div>
@@ -94,12 +91,8 @@
             <div class="existing-columns">
               <strong>Existing Columns</strong>
               <ul>
-                <li> <input type="checkbox" value=""> XXXXXX</li>
-                <li> <input type="checkbox" value=""> XXXXXX</li>
-                <li> <input type="checkbox" value=""> XXXXXX</li>
-                <li> <input type="checkbox" value=""> XXXXXX</li>
-                <li> <input type="checkbox" value=""> XXXXXX</li>
-                <li> <input type="checkbox" value=""> XXXXXX</li>
+                <li *ngFor="let item of modalInputData?.existingColumns"><input type="checkbox" value=""> {{item |
+                  uppercase}}</li>
               </ul>
             </div>
             <div class="modal-footer">
@@ -108,7 +101,38 @@
             </div>
           </div>
         </div>
-        
+
+        <div class="form-continer" *ngIf="modalInputData?.type == 'addRow'">
+          <div class="dark-bg">
+            <div class="row">
+              <div class="col-sm">
+                <div class="form-group">
+                  <label for="">Select Engine No.</label>
+                  <select class="default" name="" id="">
+                    <option value="">Select</option>
+                    <option value="">DL123456</option>
+                    <option value="">DL123456</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <form [formGroup]="dataManagmentRowForm" action="">
+              <div class="row">
+                <div class="col-sm-6" *ngFor="let item of dataManagementRowFields">
+                  <div class="form-group">
+                    <label for="">{{item}}</label>
+                    <input type="text" [formControlName]="item" class="form-control" value="">
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer" *ngIf="modalInputData?.type == 'addRow'">
+          <button type="button" class="btn btn-primary" [disabled]="!dataManagmentRowForm.valid"> Add </button>
+          <button type="button" class="btn btn-primary" #closeModal data-dismiss="modal">Close</button>
+        </div>
+
         <div class="modal-footer" *ngIf="modalInputData?.type === 'sentback'">
           <button type="button" class="btn btn-primary" value="send" (click)="submit($event)">Save </button>
           <button type="button" class="btn btn-primary" #closeModal data-dismiss="modal">Close</button>
