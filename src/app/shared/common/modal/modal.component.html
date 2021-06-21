@@ -42,7 +42,7 @@
           </tbody>
         </table>
 
-        <div class="form-continer" *ngIf="modalInputData?.type == 'sendback'">
+        <div class="form-continer" *ngIf="modalInputData?.type === 'sendback'">
           <div class="form-group">
             <label for="">Comment</label>
             <textarea [(ngModel)]="providerComment" class="form-control" placeholder="Enter Comment"></textarea>
@@ -133,7 +133,7 @@
           <button type="button" class="btn btn-primary" #closeModal data-dismiss="modal">Close</button>
         </div>
 
-        <div class="modal-footer" *ngIf="modalInputData?.type === 'sentback'">
+        <div class="modal-footer" *ngIf="modalInputData?.type === 'sendback'">
           <button type="button" class="btn btn-primary" value="send" (click)="submit($event)">Save </button>
           <button type="button" class="btn btn-primary" #closeModal data-dismiss="modal">Close</button>
         </div>

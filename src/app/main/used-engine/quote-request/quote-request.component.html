@@ -1,5 +1,5 @@
 <div class="quote-request-head">
-  <button type="button" class="btn btn-primary" *ngIf="roleName === 'requestor'">New Quote ID</button>
+  <button type="button" class="btn btn-primary" *ngIf="roleName === 'requestor'">New Quote</button>
   <!-- <div>
     <label for="" class="default">Quote ID: </label>
     <nz-select nzPlaceHolder="Select a Quote ID" [(ngModel)]="selectedQuoteID">
@@ -118,6 +118,6 @@
     </form>
   </div>  
   <div class="button-set" *ngIf="roleName === 'requestor'">
-    <button class="btn btn-primary" [disabled]="!quoteRequestForm.valid" (click)="submit()">Submit</button>
+    <button class="btn btn-primary" [disabled]="!quoteRequestForm.valid" (click)="submit()">Submit Quote</button>
   </div>
 </div>

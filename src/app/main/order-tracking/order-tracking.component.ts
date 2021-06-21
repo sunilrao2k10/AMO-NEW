@@ -16,8 +16,6 @@ interface Person {
 })
 export class OrderTrackingComponent implements OnInit {
   orderTrakingType: any = 'orderTracking';
-  /*name of the excel-file which will be downloaded. */
-  fileName = 'ExcelSheet.xlsx';
 
   listOfData: Person[] = [
     {

@@ -1,13 +1,14 @@
 <div class="table-header">
-  <button class="btn btn-primary" data-toggle="modal" data-target="#commonModal" value="Add Column" (click)="addColumn($event)"> Add Column</button>
-  <button class="btn btn-primary" (click)="exportexcel('table-excel-export', 'ExcelSheet.xlsx')"> Export to Excel</button>
+  <button class="btn btn-primary btn-wt-icon" data-toggle="modal" data-target="#commonModal" value="Add Column" (click)="addColumn($event)"><i class="bi bi-plus-circle"></i> Add Column</button>
+  <button class="btn btn-primary btn-wt-icon" (click)="exportexcel('table-excel-export', 'ExcelSheet.xlsx')"> <i class="bi bi-file-arrow-down"></i> Export to Excel</button>
 </div>
 <div class="table-wrap">
-  <h4>Data Management</h4>
+  <!-- <h4>Data Management</h4> -->
   <nz-table id="table-excel-export" #editRowTable nzBordered [nzData]="listOfData">
     <thead>
       <tr>
         <th *ngFor="let head of editRowTable.data[0] | keyvalue">{{head.key}}</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -22,8 +23,12 @@
           <ng-template #notEdit>
             {{list.value}}
           </ng-template>
-          <button (click)='addRow($event)' value="Add Row" data-toggle="modal" data-target="#commonModal" class="btn btn-primery" *ngIf="lastRow && last">Add</button>
+          <!-- <button (click)='addRow($event)' value="Add Row" data-toggle="modal" data-target="#commonModal" class="btn btn-primery" *ngIf="lastRow && last">Add</button> -->
         </td> 
+        <td>
+          <i class="bi bi-trash-fill fs-18"></i>
+          <i (click)='addRow($event)' *ngIf="lastRow" data-toggle="modal" data-target="#commonModal" class="bi bi-plus-circle-fill fs-18"></i>
+        </td>
       </tr>
     </tbody>
   </nz-table>

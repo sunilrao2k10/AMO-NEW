@@ -20,8 +20,10 @@ export class ModalComponent implements OnInit {
   constructor(private router: Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.dataManagementRowFields = Object.keys(this.modalInputData.formFields);
-    this.initializeForm();
+    if (this.modalInputData.formFields){
+      this.dataManagementRowFields = Object.keys(this.modalInputData.formFields);
+      this.initializeForm();
+    }
   }
 
   submit(value: any): void {
@@ -44,7 +46,7 @@ export class ModalComponent implements OnInit {
 
   updateKeysAndValues(): { [key: string]: any; } {
     const output = this.dataManagementRowFields.reduce((accum: any, value: string) => {
-      accum[value] = [{ value: '', disabled: true }, [Validators.required]];
+      accum[value] = ['', [Validators.required]];
       return accum;
     }, {});
     return output as FormControl;

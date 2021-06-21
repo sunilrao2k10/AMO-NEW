@@ -87,7 +87,7 @@ export class DataManagementComponent implements OnInit {
 
   addRow(event: any): void {
     this.showModal = true;
-    this.modalInputData.title = event.target.value;
+    this.modalInputData.title = 'Add Row';
     this.modalInputData.type = 'addRow';
     this.modalInputData.formFields = Utility.objKeys(this.listOfData[0]);
   }
