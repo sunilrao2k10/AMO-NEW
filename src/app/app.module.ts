@@ -11,6 +11,11 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtHttpInterceptor } from './jwt-http.interceptor';
 
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+registerLocaleData(en);
+import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +34,7 @@ import { JwtHttpInterceptor } from './jwt-http.interceptor';
       useClass: JwtHttpInterceptor,
       multi: true
     },
+    { provide: NZ_I18N, useValue: en_US },
     GlobalService],
   bootstrap: [AppComponent]
 })

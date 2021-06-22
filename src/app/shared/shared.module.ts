@@ -12,6 +12,7 @@ import {
 } from './index';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from './common/modal/modal.component';
+import { NotFoundComponent } from './common/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ModalComponent } from './common/modal/modal.component';
     SubHeaderComponent,
     SpinnerComponent,
     ModalComponent,
-    KeysPipe
+    KeysPipe,
+    NotFoundComponent,
   ],
   exports: [
     HeaderComponent,

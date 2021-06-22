@@ -3,7 +3,6 @@ import { BaseService } from './../../../shared/services/base/base.service';
 import { Utility } from './../../../shared/functions/utility';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
-
 @Component({
   selector: 'app-quote-issue',
   templateUrl: './quote-issue.component.html',
@@ -11,6 +10,8 @@ import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild,
 })
 export class QuoteIssueComponent implements OnInit {
   @Output() formSubmited = new EventEmitter();
+  date = null;
+  isEnglish = false;
   roleName = '';
   providerComment = '';
   quoteIssueItem: any = {};
@@ -35,7 +36,7 @@ export class QuoteIssueComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private baseService: BaseService,
-    private globalService: GlobalService
+    private globalService: GlobalService,
     ) { }
 
   ngOnInit(): void {
@@ -128,5 +129,10 @@ export class QuoteIssueComponent implements OnInit {
     this.showModal = true;
     this.modalInputData.title = value;
     this.modalInputData.type = 'quotationCalculation';
+  }
+
+  /* For Date picker */
+  onChange(result: any): void {
+    console.log('onChange: ', result);
   }
 }

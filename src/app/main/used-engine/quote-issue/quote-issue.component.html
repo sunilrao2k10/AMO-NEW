@@ -64,7 +64,8 @@
           <div class="col-sm">
             <div class="form-group">
               <label for="engineDate">Engine Date</label>
-              <input type="text" class="form-control" formControlName="engineDate" id="engineDate" placeholder="XXXXXX">
+              <nz-date-picker class="form-control" formControlName="engineDate" (change)="onChange($event)"></nz-date-picker>
+              <!-- <input type="text" class="form-control" formControlName="engineDate" id="engineDate" placeholder="XXXXXX"> -->
             </div>
           </div>
           <div class="col-sm">
@@ -140,12 +141,12 @@
               <textarea rows="5" class="form-control" id="requestorComment" formControlName="requestorComment" placeholder="XXXXXX"></textarea>
             </div>
           </div>
-          <div class="col-sm-6" *ngIf="quoteIssueUpdated?.comment && quoteIssueUpdated?.role==='requestor'">
+          <!-- <div class="col-sm-6" *ngIf="quoteIssueUpdated?.comment && quoteIssueUpdated?.role==='requestor'">
             <div class="form-group">
               <label for="providerComment">Provider Comment</label>
               <p class="feedBackMsg error">{{quoteIssueUpdated?.comment}}</p>
             </div>
-          </div>
+          </div> -->
           <div class="col-sm-6" *ngIf="quoteIssueUpdated?.quotationTool && quoteIssueUpdated?.role==='provider'">
             <div class="form-group">
               <label for="">&nbsp;</label>

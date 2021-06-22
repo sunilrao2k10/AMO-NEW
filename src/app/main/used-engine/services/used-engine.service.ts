@@ -11,16 +11,10 @@ export class UsedEngineService {
     let panels: any[] = [];
     const response = data.data;
     if (data && response.role === 'requestor'){
-      if (response.quoteState === 'pending' || response.quoteState === 'sendback'){
+      if (response.quoteState === 'pending' || response.quoteState === 'sendback' || response.quoteState === 'reject'){
         panels = panelName.map((item: any) => {
           item.active = item.code === 'QR' ? true : false;
           item.disabled = item.code === 'QR' ? false : true;
-          return item;
-        });
-      } else if (response.quoteState === 'reject'){
-        panels = panelName.map((item: any) => {
-          item.active = item.code === 'QI' ? true : false;
-          item.disabled = item.code === 'QR' || item.code === 'QI' ? false : true;
           return item;
         });
       } else if (response.quoteState === 'approve'){

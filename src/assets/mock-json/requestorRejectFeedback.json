@@ -4,8 +4,8 @@
   "data": {
     "role": "requestor",
     "quoteState": "reject",
-    "currentQueue": "Engine Demand Request",
-    "comment": "Send Feedback: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the",
+    "currentQueue": "Quote Issue",
+    "comment": "Reject Feedback: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the",
     "quoteRequest": {
       "channel": "spareEngineSale",
       "engineDate": "asdf",
@@ -14,15 +14,6 @@
       "requestor": "adfsad",
       "requestorComment": "asdfasdf",
       "typeOfTransaction": "Spare Engine Sale"
-    },
-    "quoteIssue": {
-      "channel": "spareEngineSale",
-      "engineDate": "asdf",
-      "modelNumber": "ABC00001",
-      "productLine": "LM2500",
-      "requestor": "adfsad",
-      "requestorComment": "asdfasdf",
-      "typeOfTransaction": "Spare Engine Sale"
-    }
+    }    
   }
 }

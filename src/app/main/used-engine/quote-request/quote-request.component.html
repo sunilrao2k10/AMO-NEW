@@ -111,7 +111,7 @@
         <div class="col-sm-6" *ngIf="quoteRequestUpdated?.comment && quoteRequestUpdated?.role==='requestor'">
           <div class="form-group">
             <label for="providerComment">Provider Comment</label>
-            <p class="feedBackMsg">{{quoteRequestUpdated?.comment}}</p>
+            <p [ngClass]="quoteRequestUpdated?.quoteState === 'reject' ? 'feedBackMsg error': 'feedBackMsg'">{{quoteRequestUpdated?.comment}}</p>
           </div>
         </div>        
       </div>
