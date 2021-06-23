@@ -8,11 +8,11 @@
         "comment": "",
         "quoteRequest": {
             "channel": "spareEngineSale",
-            "engineDate": "asdf",
+            "engineDate": "12-06-2021",
             "modelNumber": "ABC00001",
             "productLine": "LM2500",
-            "requestor": "adfsad",
-            "requestorComment": "asdfasdf",
+            "requestor": "ABC",
+            "requestorComment": "Test",
             "typeOfTransaction": "Spare Engine Sale"
         },
         "quoteIssue": {

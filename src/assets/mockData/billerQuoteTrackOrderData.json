@@ -1,0 +1,46 @@
+{
+    "status":true,
+    "message":"success",
+    "data": [{
+        "quote_id":"11",
+        "requestor":"11abcs",
+        "channel":"new111",
+        "typeOfTransaction":"new",
+        "status":"billed",
+        "quatationExpirationDate":"30-05-2021"
+        },
+        {
+        "quote_id":"1",
+        "requestor":"abcs",
+        "channel":"new111",
+        "typeOfTransaction":"new",
+        "status":"shipped",
+        "quatationExpirationDate":"30-05-2021"
+        },
+        {
+        "quote_id":"2",
+        "requestor":"abcs",
+        "channel":"new111",
+        "typeOfTransaction":"new",
+        "status":"billed",
+        "quatationExpirationDate":"30-05-2021"
+        },
+        {
+        "quote_id":"3",
+        "requestor":"abcs",
+        "channel":"new111",
+        "typeOfTransaction":"new",
+        "status":"pending",
+        "quatationExpirationDate":"30-05-2021"
+        },
+        {
+        "quote_id":"4",
+        "requestor":"abcs",
+        "channel":"new111",
+        "typeOfTransaction":"new",
+        "status":"pending",
+        "quatationExpirationDate":"30-05-2021"
+        }]
+    }
+    
+    

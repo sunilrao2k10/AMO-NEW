@@ -21,7 +21,8 @@ export class BaseService {
   providerPending = 'assets/mock-json/providerPending.json';
   requestorPending = 'assets/mock-json/requestorPending.json';
   pendingProviderQuotationMsg = 'assets/mock-json/pendingProviderQuotationMsg.json';
-
+  erc = 'assets/mock-json/erc.json';
+  OTsendback = 'assets/mock-json/OTSendOrder.json';
   constructor(private http: HttpClient) { }
 
   /**
@@ -112,6 +113,12 @@ export class BaseService {
     }
     if (value === 'rejectProvider') {
       return this.get(this.providerRejectFeedback);
+    }
+    if (value === 'ercJson') {
+      return this.get(this.erc);
+    }
+    if (value === 'OTsendback') {
+      return this.get(this.OTsendback);
     }
     return this.get(this.quoteIdDataShiped);
   }

@@ -134,6 +134,26 @@ export class UsedEngineComponent implements OnInit, OnDestroy {
         this.panels = this.usedEnginService.usedEngineCase(this.panelDefaultValue, data); // data.panel;
       });
     }
+    else if (value === '5555' && this.roleName === 'provider'){
+      this.baseService.quoteIDDataShiped('ercJson').subscribe(data => {
+        this.response = data.data;
+        this.activeStep(this.response);
+        this.panels = this.usedEnginService.usedEngineCase(this.panelDefaultValue, data); // data.panel;
+      });
+    }
+    else if (value === '5555' && this.roleName === 'requestor'){
+      this.baseService.quoteIDDataShiped('ercJson').subscribe(data => {
+        this.response = data.data;
+        this.activeStep(this.response);
+        this.panels = this.usedEnginService.usedEngineCase(this.panelDefaultValue, data); // data.panel;
+      });
+    } else if (value === '6666'){
+      this.baseService.quoteIDDataShiped('OTsendback').subscribe(data => {
+        this.response = data.data;
+        this.activeStep(this.response);
+        this.panels = this.usedEnginService.usedEngineCase(this.panelDefaultValue, data); // data.panel;
+      });
+    }
   }
 
   formData(event: any): void{

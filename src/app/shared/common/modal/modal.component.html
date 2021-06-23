@@ -128,6 +128,16 @@
             </form>
           </div>
         </div>
+        <div class="form-continer" *ngIf="modalInputData?.type == 'showQuote'">
+          <div class="row">
+           
+              <div class="form-group">
+                <label for="">Your quote is 1234</label>
+                
+              </div>
+            
+          </div>
+        </div>
         <div class="modal-footer" *ngIf="modalInputData?.type == 'addRow'">
           <button type="button" class="btn btn-primary" [disabled]="!dataManagmentRowForm.valid"> Add </button>
           <button type="button" class="btn btn-primary" #closeModal data-dismiss="modal">Close</button>

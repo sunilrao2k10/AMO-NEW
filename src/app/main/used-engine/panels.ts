@@ -12,7 +12,7 @@ export const stepName: any[] = [
     submited: false
   },
   {
-    name: 'EN Confirmation',
+    name: 'Engine Request Confirmation',
     submited: false
   },
   {
@@ -40,7 +40,7 @@ export const PanelName: any[] = [
     disabled: false,
   },
   {
-    name: 'EN Confirmation',
+    name: 'Engine Request Confirmation',
     code: 'ENC',
     active: false,
     disabled: false,

@@ -48,11 +48,11 @@
         <div class="row">
           <div class="col-sm">
             <div class="form-group">
-              <label for="requestor">Requestor</label>
-              <input type="text" class="form-control" formControlName="requestor" id="requestor" placeholder="XXXXXX">
+              <label for="requestor">Quote</label>
+              <input type="text" class="form-control" formControlName="quote" id="quote" placeholder="Enter Quote">
             </div>
           </div>
-          <div class="col-sm">
+          <!-- <div class="col-sm">
             <div class="form-group">
               <label for="modelNumber">Model Number</label>
               <select name="" id="modelNumber" class="form-control" formControlName="modelNumber">
@@ -60,15 +60,29 @@
                 <option value="ABC00002">ABC00002</option>
               </select>           
             </div>
-          </div>
+          </div> -->
           <div class="col-sm">
             <div class="form-group">
-              <label for="engineDate">Engine Date</label>
-              <nz-date-picker class="form-control" formControlName="engineDate" (change)="onChange($event)"></nz-date-picker>
+              <label for="poNeededBy">PO Needed By</label>
+              <nz-date-picker class="form-control" formControlName="poNeededBy" (change)="onChange($event)"></nz-date-picker>
               <!-- <input type="text" class="form-control" formControlName="engineDate" id="engineDate" placeholder="XXXXXX"> -->
             </div>
           </div>
           <div class="col-sm">
+            <div class="form-group">
+              <label for="supplyCommitDate">Engine Supply Commit Date</label>
+              <nz-date-picker class="form-control" formControlName="supplyCommitDate" (change)="onChange($event)"></nz-date-picker>
+              <!-- <input type="text" class="form-control" formControlName="engineDate" id="engineDate" placeholder="XXXXXX"> -->
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="expirationDate">Quotation Expiration Date</label>
+              <nz-date-picker class="form-control" formControlName="expirationDate" (change)="onChange($event)"></nz-date-picker>
+              <!-- <input type="text" class="form-control" formControlName="engineDate" id="engineDate" placeholder="XXXXXX"> -->
+            </div>
+          </div>
+          <!-- <div class="col-sm">
             <label for="engineDate" class="d-block">Type of Transaction</label>
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="radio" formControlName="typeOfTransaction" name="typeOfTransaction" id="spareEngineSale"
@@ -84,10 +98,10 @@
                 Engine Exchange
               </label>
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="row">
-          <div class="col-sm-3">
+          <!-- <div class="col-sm-3">
             <div class="form-group">
               <label for="engineDate" class="d-block">Channel</label>
               <div class="form-check form-check-inline">
@@ -103,8 +117,8 @@
                 </label>
               </div>
             </div>
-          </div>
-          <div class="col-sm-3">
+          </div> -->
+          <!-- <div class="col-sm-3">
             <div class="form-group">
               <label for="engineDate" class="d-block">Product Line</label>
               <div class="form-check form-check-inline">
@@ -132,13 +146,13 @@
                 </label>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group">
-              <label for="requestorComment">Requestor Comment</label>
-              <textarea rows="5" class="form-control" id="requestorComment" formControlName="requestorComment" placeholder="XXXXXX"></textarea>
+              <label for="providerComment">Providers Comment</label>
+              <textarea rows="5" class="form-control" id="providerComment" formControlName="providerComment" placeholder="Provider Comments"></textarea>
             </div>
           </div>
           <!-- <div class="col-sm-6" *ngIf="quoteIssueUpdated?.comment && quoteIssueUpdated?.role==='requestor'">
@@ -162,8 +176,7 @@
     
     
     <div class="button-set" *ngIf="quoteIssueUpdated?.role === 'provider'">
-      <button class="btn btn-success" value="approve" (click)="submit()"
-      [disabled]="!quoteIssueForm.valid"
+      <button class="btn btn-success" value="approve" (click)="submit()"      
       >Approve</button>
       <button class="btn btn-danger" data-toggle="modal" data-target="#commonModal" value="reject" 
       [disabled]="!quoteIssueForm.valid"

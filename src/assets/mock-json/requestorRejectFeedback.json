@@ -5,14 +5,14 @@
     "role": "requestor",
     "quoteState": "reject",
     "currentQueue": "Quote Issue",
-    "comment": "Reject Feedback: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the",
+    "comment": "Reject Feedback: Please select some other model Number.",
     "quoteRequest": {
       "channel": "spareEngineSale",
-      "engineDate": "asdf",
+      "engineDate": "12-06-2021",
       "modelNumber": "ABC00001",
       "productLine": "LM2500",
-      "requestor": "adfsad",
-      "requestorComment": "asdfasdf",
+      "requestor": "ABC",
+      "requestorComment": "Please select some other model Number.",
       "typeOfTransaction": "Spare Engine Sale"
     }    
   }

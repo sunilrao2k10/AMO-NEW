@@ -1,3 +1,5 @@
+<div class="table-wrap quote-table">
+  <h4>Quote</h4>
 <nz-table #basicTable [nzData]="listOfData">
     <thead>
       <tr>  
@@ -5,9 +7,9 @@
         <th>Quote ID</th>
         <th>Requestor</th>
         <th>Channel</th>
-        <th>Type of Transaction </th>
-        <th>Site</th>        
+        <th>Type of Transaction </th>        
         <th>Status</th>
+        <th>Quotation Expiration Date</th>
       </tr>
     </thead>
     <tbody>      
@@ -17,12 +19,14 @@
         <td>{{ data.SO }}</td>
         <td>{{ data.channel }}</td>
         <td>{{ data.dateRequiredAt}}</td>
-        <td>{{ data.site }}</td>        
         <td>
-          <button value="data.status" class="btn billed" *ngIf="data.status === 'billed'">Billed</button>
-          <button value="data.status" class="btn pending" *ngIf="data.status === 'pending'">Pending order</button>
-          <button value="data.status" class="btn shipped" *ngIf="data.status === 'shipped'">Shipped</button>
-        </td>                
+          <button value="data.status" class="btn rejected" (click)="onCheckStatus(data)" *ngIf="data.status === 'reject'">Reject</button>
+          <button value="data.status" class="btn pending" (click)="onCheckStatus(data)" *ngIf="data.status === 'pending'">Pending</button>
+          <button value="data.status" class="btn shipped" (click)="onCheckStatus(data)" *ngIf="data.status === 'approved'">Approved</button>
+          <button value="data.status" class="btn sendback" (click)="onCheckStatus(data)" *ngIf="data.status === 'sendBack'">Send Back</button>
+        </td>
+        <td>{{ data.site }}</td>                                
       </tr>
     </tbody>
   </nz-table>
+</div>

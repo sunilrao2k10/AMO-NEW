@@ -1,0 +1,32 @@
+{
+    "status": true,
+    "message": "success",
+    "data": {
+      "role": "provider",
+      "quoteState": "ercSendBack",
+      "currentQueue": "Engine Request Confirmation",
+      "comment": "",
+      "quoteRequest": {
+        "channel": "spareEngineSale",
+        "engineDate": "12-06-2021",
+        "modelNumber": "ABC00001",
+        "productLine": "LM2500",
+        "requestor": "ABC",
+        "requestorComment": "TEST",
+        "typeOfTransaction": "Spare Engine Sale"
+      },
+      "quoteIssue": {
+        "quote": "123",
+        "poNeededBy": "12-06-2021",
+        "supplyCommitDate":"12-06-2021",
+        "expirationDate":"12-06-2021",
+        "providerComment": "TEST"
+      },
+      "engineDemandRequest": {
+       
+      },
+      "erc": {
+        
+      }
+    }
+  }

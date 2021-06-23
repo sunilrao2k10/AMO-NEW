@@ -1,0 +1,54 @@
+<div class="roles">
+    <label for="" class="default">
+        Roles:
+    </label>
+    <nz-select nzPlaceHolder="Select a Role" [(ngModel)]="selectedValue" (ngModelChange)="setRole()">
+        <nz-option nzLabel="Used Engine Provider" nzValue="provider"></nz-option>
+        <nz-option nzLabel="Used Engine Requestor" nzValue="requestor"></nz-option>
+        <nz-option nzLabel="Used Engine Biller" nzValue="biller"></nz-option>
+    </nz-select>
+</div>
+<div class="main-tabs">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link" [ngClass]="{ 'active':activeTab==='usedEngine'}" (click)="setActiveTab('usedEngine')" id="used-engine-tab" data-toggle="tab" href="#used-engine" role="tab"
+                aria-controls="used-engine" aria-selected="true">Used Engine</a>
+        </li>
+        <li class="nav-item" *ngIf="selectedValue=='provider'">
+            <a class="nav-link" id="data-management-tab" [ngClass]="{ 'active':activeTab==='dataManagment'}" (click)="setActiveTab('dataManagment')" data-toggle="tab" href="#data-management" role="tab"
+                aria-controls="data-management" aria-selected="false">Data Management</a>
+        </li>
+        <li class="nav-item"  *ngIf="selectedValue=='provider'">
+            <a class="nav-link" id="quotation-tool-tab" [ngClass]="{ 'active':activeTab==='quotationTool'}" (click)="setActiveTab('quotationTool')" data-toggle="tab" href="#quotation-tool" role="tab"
+                aria-controls="quotation-tool" aria-selected="false">Quotation Tool</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="order-tracking-tab" [ngClass]="{ 'active':activeTab==='orderTracking'}" (click)="setActiveTab('orderTracking')" data-toggle="tab" href="#order-tracking" role="tab"
+                aria-controls="order-tracking" aria-selected="false">Order Tracking</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane" [ngClass]="{ 'active':activeTab==='usedEngine'}" id="used-engine" role="tabpanel" aria-labelledby="used-engine-tab">
+            <app-used-engine></app-used-engine>
+        </div>
+        <div class="tab-pane" id="data-management" [ngClass]="{ 'active':activeTab==='dataManagment'}" role="tabpanel" aria-labelledby="data-management-tab">
+            <app-data-management></app-data-management>
+        </div>
+        <div class="tab-pane" id="quotation-tool" [ngClass]="{ 'active':activeTab==='quotationTool'}" role="tabpanel" aria-labelledby="quotationTool-tab">
+            <app-quotation-tool></app-quotation-tool>
+        </div>
+        <div class="tab-pane" id="order-tracking" [ngClass]="{ 'active':activeTab==='orderTracking'}" role="tabpanel" aria-labelledby="order-tracking-tab">
+            <app-order-tracking></app-order-tracking>
+        </div>
+    </div>
+</div>
+<!-- <div class="main-tabs">
+        <nz-tabset nzType="card">
+            <nz-tab [nzTitle]="'Used Engine'">
+                <app-used-engine></app-used-engine>
+            </nz-tab>
+            <nz-tab [nzTitle]="'Order Tracking'">
+                <app-order-tracking></app-order-tracking>
+            </nz-tab>
+          </nz-tabset>
+    </div>     -->

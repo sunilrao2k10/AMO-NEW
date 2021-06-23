@@ -5,13 +5,13 @@
         <div class="col-sm">
           <div class="form-group">
             <label for="finishedGoodsCost">Finished Goods Cost</label>
-            <input type="text" class="form-control" id="finishedGoodsCost" placeholder="XXXXXX">
+            <input type="text" class="form-control" id="finishedGoodsCost" placeholder="">
           </div>
         </div>
         <div class="col-sm">
           <div class="form-group">
             <label for="estimatedFreightCost" class="d-block">Estimated Freight Cost</label>
-            <input type="text" class="form-control" id="estimatedFreightCost" placeholder="XXXXXX">
+            <input type="text" class="form-control" id="estimatedFreightCost" placeholder="">
           </div>
         </div>
         <div class="col-sm">
@@ -32,7 +32,7 @@
         <div class="col-sm">
           <div class="form-group">
             <label for="quoteIDNoReference">Locator</label>
-            <input type="text" class="form-control" id="quoteIDNoReference" placeholder="XXXXXX">
+            <input type="text" class="form-control" id="quoteIDNoReference" placeholder="">
           </div>
         </div>
       </div>
@@ -49,19 +49,19 @@
         <div class="col-sm">
           <div class="form-group">
             <label for="modelNumber">ESN</label>
-            <input type="text" class="form-control" id="ESN" placeholder="XXXXXX">
+            <input type="text" class="form-control" id="ESN" placeholder="">
           </div>
         </div>
         <div class="col-sm">
           <div class="form-group">
             <label for="containerPartNumber" class="d-block">Container Part Number</label>
-            <input type="text" class="form-control" id="containerPartNumber" placeholder="XXXXXX">
+            <input type="text" class="form-control" id="containerPartNumber" placeholder="">
           </div>
         </div>
         <div class="col-sm">
           <div class="form-group">
             <label for="containerSerialNumber">Container Serial Number</label>
-            <input type="text" class="form-control" id="containerSerialNumber" placeholder="XXXXXX">
+            <input type="text" class="form-control" id="containerSerialNumber" placeholder="">
           </div>
         </div>
       </div>
@@ -69,25 +69,26 @@
         <div class="col-sm">
           <div class="form-group">
             <label for="containerDimensions">Container Dimensions</label>
-            <input type="text" class="form-control" id="containerDimensions" placeholder="XXXXXX">
+            <input type="text" class="form-control" id="containerDimensions" placeholder="">
           </div>
         </div>
         <div class="col-sm">
           <div class="form-group">
             <label for="containerWeight">Container Weight</label>
-            <input type="text" class="form-control" id="containerWeight" placeholder="XXXXXX">
+            <input type="text" class="form-control" id="containerWeight" placeholder="">
           </div>
         </div>
         <div class="col-sm">
           <div class="form-group">
             <label for="dateShipped">Date Shipped</label>
-            <input type="text" class="form-control" id="dateShipped" placeholder="XXXXXX">
+            <!-- <input type="text" class="form-control" id="dateShipped" placeholder=""> -->
+            <nz-date-picker class="form-control" [(ngModel)]="data" (change)="onChange($event)"></nz-date-picker>
           </div>
         </div>
         <div class="col-sm-3">
           <div class="form-group">
             <label for="buybackShipTolocation">Buyback Ship To location</label>
-            <input type="text" class="form-control" id="buybackShipTolocation" placeholder="XXXXXX">
+            <input type="text" class="form-control" id="buybackShipTolocation" placeholder="">
           </div>
         </div>
       </div>
@@ -95,27 +96,32 @@
         <div class="col-sm-3">
           <div class="form-group">
             <label for="attentionTo">Attention to</label>
-            <input type="text" class="form-control" id="attentionTo" placeholder="XXXXXX">
+            <input type="text" class="form-control" id="attentionTo" placeholder="">
           </div>
         </div>
         <!-- <div class="col-sm">
           <div class="form-group">
           <label for="buybackStartSinceLastHotSection">Automatically Generate Draft BOL & Draft Ship Request</label>
-          <input type="text" class="form-control" id="buybackStartSinceLastHotSection" placeholder="XXXXXX">
+          <input type="text" class="form-control" id="buybackStartSinceLastHotSection" placeholder="">
           </div>
       </div>  -->
         <div class="col-sm-3">
           <div class="form-group">
             <label for="workorderNumber">Workorder/job Number</label>
-            <input type="text" class="form-control" id="workorderNumber" placeholder="XXXXXX">
+            <input type="text" class="form-control" id="workorderNumber" placeholder="">
           </div>
         </div>
       </div>
     </form>
   </div>
-  <div class="button-set">
-    <button class="btn btn-success" value="approve" >Approve</button>
-    <button class="btn btn-danger" value="reject" >Reject</button>
-    <button class="btn btn-primary" value="send" >Send</button>
+  <div class="button-set" *ngIf="roleName === 'provider'">
+    <button class="btn btn-success" value="approve" (click)="submit()"      
+    >Approve</button>
+    <button class="btn btn-danger" data-toggle="modal" data-target="#commonModal" value="reject" 
+    value="reject" (click)="sendBack($event)">Reject</button>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#commonModal" value="send" 
+    (click)="sendBack($event)">Send Back</button>
   </div>
-</div>
+</div>  
+
+<app-modal [modalInputData]="modalInputData" *ngIf="showModal"></app-modal>

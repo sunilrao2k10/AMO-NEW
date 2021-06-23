@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, Event } from '@angular/router';
 interface Person {
   PO: number;
   SO: string;
@@ -16,13 +17,22 @@ interface Person {
 export class QuotesComponent implements OnInit {
   listOfData: Person[] = [
     {
-      PO: 1111,
+      PO: 3333,
       SO: 'XXXXXX',
       channel: 'XXXXXX',
       dateRequiredAt: 'XXXXXX',
       site: 'XXXXXX',
       ESN: 'XXXXXX',
-      status: 'shipped'
+      status: 'reject'
+    },
+    {
+      PO: 1000,
+      SO: 'XXXXXX',
+      channel: 'XXXXXX',
+      dateRequiredAt: 'XXXXXX',
+      site: 'XXXXXX',
+      ESN: 'XXXXXX',
+      status: 'pending'
     },
     {
       PO: 2222,
@@ -31,30 +41,23 @@ export class QuotesComponent implements OnInit {
       dateRequiredAt: 'XXXXXX',
       site: 'XXXXXX',
       ESN: 'XXXXXX',
-      status: 'pending'
+      status: 'sendBack'
     },
     {
-      PO: 3333,
+      PO: 1111,
       SO: 'XXXXXX',
       channel: 'XXXXXX',
       dateRequiredAt: 'XXXXXX',
       site: 'XXXXXX',
       ESN: 'XXXXXX',
-      status: 'pending'
-    },
-    {
-      PO: 4444,
-      SO: 'XXXXXX',
-      channel: 'XXXXXX',
-      dateRequiredAt: 'XXXXXX',
-      site: 'XXXXXX',
-      ESN: 'XXXXXX',
-      status: 'billed'
+      status: 'approved'
     }
   ];
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
-
+  onCheckStatus(data: any): void {
+    this.router.navigate(['/used-engine'], { queryParams: { quoteID: data.PO } });
+  }
 }

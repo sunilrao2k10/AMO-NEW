@@ -50,7 +50,7 @@ export class QuoteIssueComponent implements OnInit {
       const status = this.quoteIssueUpdated.quoteState;
       this.quoteIssueItem = this.quoteIssueUpdated.quoteIssue;
       this.updateFormData(this.quoteIssueItem);
-      if ( status === 'approve' || status === 'reject' || status === 'sendback'){
+      if ( status === 'approve' || status === 'reject' || status === 'sendback' || status === 'erc'){
         this.quoteIssueForm.disable();
       } else {
         this.quoteIssueForm.enable();
@@ -81,13 +81,11 @@ export class QuoteIssueComponent implements OnInit {
    */
    initializeForm(): void {
     this.quoteIssueForm = this.fb.group({
-      requestor: ['', [Validators.required]],
-      modelNumber: ['', [Validators.required]],
-      engineDate: ['', [Validators.required]],
-      typeOfTransaction: ['', [Validators.required]],
-      channel: ['', [Validators.required]],
-      productLine: ['', [Validators.required]],
-      requestorComment: ['', [Validators.required]],
+      quote: ['', [Validators.required]],
+      poNeededBy: ['', [Validators.required]],
+      supplyCommitDate: ['', [Validators.required]],
+      expirationDate: ['', [Validators.required]],
+      providerComment: ['', [Validators.required]]
     });
     this.formControls = this.quoteIssueForm.controls;
   }

@@ -1,24 +1,24 @@
 <div class="form-continer">
     <div class="dark-bg">
-      <form>
+      <form [formGroup]="engineDemandRequestForm">
         <div class="row">
           <div class="col-sm">
             <div class="form-group">
               <label for="requestor">Requestor</label>
-              <input type="text" class="form-control" id="requestor" placeholder="XXXXXX">
+              <input type="text" formControlName="requestor" class="form-control" id="requestor" placeholder="">
             </div>
           </div>
           <div class="col-sm">
             <div class="form-group">
                 <label for="engineDate" class="d-block">Channel</label>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="channel" id="GE" value="spareEngineSale">
+                  <input class="form-check-input" formControlName="channel" type="radio" name="channel" id="GE" value="spareEngineSale">
                   <label class="form-check-label" for="GE">
                     GE
                   </label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="channel" id="BH" value="BH">
+                  <input class="form-check-input" formControlName="channel" type="radio" name="channel" id="BH" value="BH">
                   <label class="form-check-label" for="BH">
                     BH
                   </label>
@@ -29,11 +29,11 @@
             <div class="form-group">
                 <label for="engineDate" class="d-block">CSA or TX</label>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="CSAorTX" id="CSA" value="CSA">
+                  <input class="form-check-input" formControlName="CSAorTX" type="radio" name="CSAorTX" id="CSA" value="CSA">
                   <label class="form-check-label" for="CSA">CSA</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="CSAorTX" id="BH" value="TX">
+                  <input class="form-check-input" formControlName="CSAorTX" type="radio" name="CSAorTX" id="BH" value="TX">
                   <label class="form-check-label" for="TX">TX</label>
                 </div>
               </div>
@@ -41,7 +41,7 @@
           <div class="col-sm">
             <div class="form-group">
               <label for="quoteIDNoReference">Quote ID No Reference </label>
-              <input type="text" class="form-control" id="quoteIDNoReference" placeholder="XXXXXX">
+              <input type="text" formControlName="quoteIDNoReference" class="form-control" id="quoteIDNoReference" placeholder="">
             </div>
           </div>
         </div>        
@@ -50,25 +50,25 @@
             <div class="form-group">
                 <label for="engineDate" class="d-block">Product Line</label>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="productLine" id="LM6000" value="LM6000">
+                  <input class="form-check-input" formControlName="productLine" type="radio" name="productLine" id="LM6000" value="LM6000">
                   <label class="form-check-label" for="LM6000">
                     LM6000
                   </label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="productLine" id="LM2500" value="LM2500">
+                  <input class="form-check-input"  formControlName="productLine" type="radio" name="productLine" id="LM2500" value="LM2500">
                   <label class="form-check-label" for="LM2500">
                     LM2500
                   </label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="productLine" id="LMS100" value="LMS100">
+                  <input class="form-check-input" formControlName="productLine" type="radio" name="productLine" id="LMS100" value="LMS100">
                   <label class="form-check-label" for="LMS100">
                     LMS100
                   </label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="productLine" id="LM9000" value="LM9000">
+                  <input class="form-check-input" formControlName="productLine" type="radio" name="productLine" id="LM9000" value="LM9000">
                   <label class="form-check-label" for="LM9000">
                     LM9000
                   </label>
@@ -78,9 +78,9 @@
           <div class="col-sm">
             <div class="form-group">
                 <label for="modelNumber">Model Number</label>
-                <select name="" id="modelNumber" class="form-control">
-                  <option value="">XXXXXX</option>
-                  <option value="">XXXXXX</option>
+                <select name="" formControlName="modelNumber" id="modelNumber" class="form-control">
+                  <option value="ABC00001">ABC00001</option>
+                  <option value="ABC00002">ABC00002</option>
                 </select>           
             </div>
           </div> 
@@ -88,14 +88,14 @@
             <div class="form-group">
                 <label for="engineDate" class="d-block">Type of Transaction</label>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="typeOfTransaction" id="spareEngineSale"
+                  <input class="form-check-input" formControlName="typeOfTransaction" type="radio" name="typeOfTransaction" id="spareEngineSale"
                     value="spareEngineSale">
                   <label class="form-check-label" for="spareEngineSale">
                     Spare Engine sale
                   </label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="typeOfTransaction" id="engineExchange"
+                  <input class="form-check-input" formControlName="typeOfTransaction" type="radio" name="typeOfTransaction" id="engineExchange"
                     value="engineExchange">
                   <label class="form-check-label" for="engineExchange">
                     Engine Exchange
@@ -106,7 +106,7 @@
           <div class="col-sm">
             <div class="form-group">
               <label for="buybackESN">Buyback ESN</label>
-              <input type="text" class="form-control" id="buybackESN" placeholder="XXXXXX">
+              <input type="text" class="form-control" formControlName="buybackESN" id="buybackESN" placeholder="">
             </div>
           </div>         
         </div>
@@ -114,25 +114,25 @@
             <div class="col-sm">
               <div class="form-group">
                 <label for="dateBuybackwillReturnfromSite">Date Buyback will Return from Site</label>
-                <input type="text" class="form-control" id="dateBuybackwillReturnfromSite" placeholder="XXXXXX">
+                <input type="text" formControlName="dateBuybackwillReturnfromSite" class="form-control" id="dateBuybackwillReturnfromSite" placeholder="">
               </div>
             </div>   
             <div class="col-sm">
               <div class="form-group">
                 <label for="buybackTimeSinceNew">Buyback time Since New(TSN)</label>
-                <input type="text" class="form-control" id="buybackTimeSinceNew" placeholder="XXXXXX">
+                <input type="text" formControlName="buybackTimeSinceNew" class="form-control" id="buybackTimeSinceNew" placeholder="">
               </div>
             </div> 
             <div class="col-sm">
               <div class="form-group">
                 <label for="buybackStartstimeSinceNew">Buyback starts time Since new</label>
-                <input type="text" class="form-control" id="buybackStartstimeSinceNew" placeholder="XXXXXX">
+                <input type="text" formControlName="buybackStartstimeSinceNew" class="form-control" id="buybackStartstimeSinceNew" placeholder="">
               </div>
             </div> 
             <div class="col-sm">
               <div class="form-group">
                 <label for="buybacktimeSinceLastMajorOverhaul">Buyback time Since Last Major Overhaul</label>
-                <input type="text" class="form-control" id="buybacktimeSinceLastMajorOverhaul" placeholder="XXXXXX">
+                <input type="text" formControlName="buybacktimeSinceLastMajorOverhaul" class="form-control" id="buybacktimeSinceLastMajorOverhaul" placeholder="">
               </div>
             </div>         
           </div>
@@ -140,25 +140,25 @@
         <div class="col-sm">
             <div class="form-group">
             <label for="buybacktimeSinceLastHotSection">Buyback time Since Last Hot Section</label>
-            <input type="text" class="form-control" id="buybacktimeSinceLastHotSection" placeholder="XXXXXX">
+            <input type="text" formControlName="buybacktimeSinceLastHotSection" class="form-control" id="buybacktimeSinceLastHotSection" placeholder="">
             </div>
         </div>   
         <div class="col-sm">
             <div class="form-group">
             <label for="buybackStartSinceLastHotSection">Buyback start Since Last Hot Section</label>
-            <input type="text" class="form-control" id="buybackStartSinceLastHotSection" placeholder="XXXXXX">
+            <input type="text" formControlName="buybackStartSinceLastHotSection" class="form-control" id="buybackStartSinceLastHotSection" placeholder="">
             </div>
         </div> 
         <div class="col-sm">
             <div class="form-group">
             <label for="endCustomerName">End Customer Name(NOT GE or BH)</label>
-            <input type="text" class="form-control" id="endCustomerName" placeholder="XXXXXX">
+            <input type="text" formControlName="endCustomerName" class="form-control" id="endCustomerName" placeholder="">
             </div>
         </div> 
         <div class="col-sm">
             <div class="form-group">
             <label for="shipToAddress">Ship To address</label>
-            <input type="text" class="form-control" id="shipToAddress" placeholder="XXXXXX">
+            <input type="text" formControlName="shipToAddress" class="form-control" id="shipToAddress" placeholder="">
             </div>
         </div>         
         </div>
@@ -166,25 +166,25 @@
             <div class="col-sm">
                 <div class="form-group">
                 <label for="responsibleServiceManagerName">Responsible Service manager Name if Different than requestor</label>
-                <input type="text" class="form-control" id="responsibleServiceManagerName" placeholder="XXXXXX">
+                <input type="text" formControlName="responsibleServiceManagerName" class="form-control" id="responsibleServiceManagerName" placeholder="">
                 </div>
             </div>   
             <div class="col-sm">
                 <div class="form-group">
                 <label for="customerContactName">Customer Contact Name</label>
-                <input type="text" class="form-control" id="customerContactName" placeholder="XXXXXX">
+                <input type="text" formControlName="customerContactName" class="form-control" id="customerContactName" placeholder="">
                 </div>
             </div> 
             <div class="col-sm">
                 <div class="form-group">
                 <label for="customerContactPhoneNumber">Customer Contact Phone number</label>
-                <input type="text" class="form-control" id="customerContactPhoneNumber" placeholder="XXXXXX">
+                <input type="text" formControlName="customerContactPhoneNumber" class="form-control" id="customerContactPhoneNumber" placeholder="">
                 </div>
             </div> 
             <div class="col-sm">
                 <div class="form-group">
                 <label for="customsBrokerName">Customs Broker Name</label>
-                <input type="text" class="form-control" id="customsBrokerName" placeholder="XXXXXX">
+                <input type="text" formControlName="customsBrokerName" class="form-control" id="customsBrokerName" placeholder="">
                 </div>
             </div>         
         </div>
@@ -192,25 +192,25 @@
             <div class="col-sm">
                 <div class="form-group">
                 <label for="customsBrokerPhoneNumber">Customs Broker Phone number</label>
-                <input type="text" class="form-control" id="customsBrokerPhoneNumber" placeholder="XXXXXX">
+                <input type="text" formControlName="customsBrokerPhoneNumber" class="form-control" id="customsBrokerPhoneNumber" placeholder="">
                 </div>
             </div>   
             <div class="col-sm">
                 <div class="form-group">
                 <label for="incoterms">Incoterms</label>
-                <input type="text" class="form-control" id="incoterms" placeholder="XXXXXX">
+                <input type="text" formControlName="incoterms" class="form-control" id="incoterms" placeholder="">
                 </div>
             </div> 
             <div class="col-sm">
                 <div class="form-group">
                 <label for="PO#">PO#(Channel to jv)</label>
-                <input type="text" class="form-control" id="PO#" placeholder="XXXXXX">
+                <input type="text" formControlName="po" class="form-control" id="PO#" placeholder="">
                 </div>
             </div> 
             <div class="col-sm">
                 <div class="form-group">
                 <label for="attachPO">Attach PO (Channel to JV)</label>
-                <input type="text" class="form-control" id="attachPO" placeholder="XXXXXX">
+                <input type="text" formControlName="attachPO" class="form-control" id="attachPO" placeholder="">
                 </div>
             </div>         
         </div>
@@ -218,25 +218,25 @@
             <div class="col-sm">
                 <div class="form-group">
                 <label for="sellPriceofEngineChannelCustomer">Sell Price of Engine to Channel Customer</label>
-                <input type="text" class="form-control" id="sellPriceofEngineChannelCustomer" placeholder="XXXXXX">
+                <input type="text" formControlName="sellPriceofEngineChannelCustomer" class="form-control" id="sellPriceofEngineChannelCustomer" placeholder="">
                 </div>
             </div>   
             <div class="col-sm">
                 <div class="form-group">
                 <label for="plannedOutageDate">Planned Outage date</label>
-                <input type="text" class="form-control" id="plannedOutageDate" placeholder="XXXXXX">
+                <input type="text" formControlName="plannedOutageDate" class="form-control" id="plannedOutageDate" placeholder="">
                 </div>
             </div> 
             <div class="col-sm">
                 <div class="form-group">
                 <label for="dateRequiredSite">Date Required at site</label>
-                <input type="text" class="form-control" id="dateRequiredSite" placeholder="XXXXXX">
+                <input type="text" formControlName="dateRequiredSite" class="form-control" id="dateRequiredSite" placeholder="">
                 </div>
             </div> 
             <div class="col-sm">
                 <div class="form-group">
                 <label for="containerPurchased">Container Purchased</label>
-                <input type="text" class="form-control" id="containerPurchased" placeholder="XXXXXX">
+                <input type="text" formControlName="containerPurchased" class="form-control" id="containerPurchased" placeholder="">
                 </div>
             </div>         
         </div>
@@ -244,19 +244,19 @@
             <div class="col-sm-3">
                 <div class="form-group">
                 <label for="softRideKitNeeded">Soft Ride Kit needed?</label>
-                <input type="text" class="form-control" id="softRideKitNeeded" placeholder="XXXXXX">
+                <input type="text" formControlName="softRideKitNeeded" class="form-control" id="softRideKitNeeded" placeholder="">
                 </div>
             </div>   
             <div class="col-sm-3">
                 <div class="form-group">
                 <label for="specialInstructions">Special instructions</label>
-                <input type="text" class="form-control" id="specialInstructions" placeholder="XXXXXX">
+                <input type="text" formControlName="specialInstructions" class="form-control" id="specialInstructions" placeholder="">
                 </div>
             </div>                    
         </div>
       </form>
     </div>
     <div class="button-set">
-      <button class="btn btn-primary">Submit</button>     
+      <button [disabled]="!engineDemandRequestForm.valid" (click)='submit()' class="btn btn-primary">Submit</button>     
     </div>
   </div> 

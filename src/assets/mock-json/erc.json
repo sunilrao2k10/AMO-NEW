@@ -1,0 +1,65 @@
+{
+    "status": true,
+    "message": "success",
+    "data": {
+      "role": "provider",
+      "quoteState": "erc",
+      "currentQueue": "Engine Request Confirmation",
+      "comment": "",
+      "quoteRequest": {
+        "channel": "spareEngineSale",
+        "engineDate": "12-06-2021",
+        "modelNumber": "ABC00001",
+        "productLine": "LM2500",
+        "requestor": "ABC",
+        "requestorComment": "TEST",
+        "typeOfTransaction": "Spare Engine Sale"
+      },
+      "quoteIssue": {
+        "quote": "123",
+        "poNeededBy": "12-06-2021",
+        "supplyCommitDate":"12-06-2021",
+        "expirationDate":"12-06-2021",
+        "providerComment": "TEST"
+      },
+      "engineDemandRequest": {
+        "CSAorTX": "CSA",
+        "attachPO": "sadfasdfasd",
+        "buybackESN": "ENS",
+        "buybackStartSinceLastHotSection": "Dummy",
+        "buybackStartstimeSinceNew": "Some data",
+        "buybackTimeSinceNew": "Some text",
+        "buybacktimeSinceLastHotSection": "Dummy",
+        "buybacktimeSinceLastMajorOverhaul": "Dummy data",
+        "channel": "spareEngineSale",
+        "containerPurchased": "Dummy data",
+        "customerContactName": "Some text",
+        "customerContactPhoneNumber": "Dummy data",
+        "customsBrokerName": "Dummy data",
+        "customsBrokerPhoneNumber": "Some text",
+        "dateBuybackwillReturnfromSite": "asdf",
+        "dateRequiredSite": "Some text",
+        "endCustomerName": "vinod",
+        "incoterms": "some data",
+        "modelNumber": "ABC00002",
+        "plannedOutageDate": "12/12/2021",
+        "po": "ZQ123433455",
+        "productLine": "LMS100",
+        "quoteIDNoReference": "1234567",
+        "requestor": "ABCDE",
+        "responsibleServiceManagerName": "Dummy Name",
+        "sellPriceofEngineChannelCustomer": "120000",
+        "shipToAddress": "A-144 Delhi",
+        "softRideKitNeeded": "some text",
+        "specialInstructions": "Lorem ipsum door",
+        "typeOfTransaction": "engineExchange"
+      },
+      "erc": {
+        "quote": "123",
+        "poNeededBy": "12-06-2021",
+        "supplyCommitDate":"12-06-2021",
+        "expirationDate":"12-06-2021",
+        "providerComment": "TEST"
+      }
+    }
+  }

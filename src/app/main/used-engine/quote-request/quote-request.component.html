@@ -31,8 +31,9 @@
         </div>
         <div class="col-sm">
           <div class="form-group">
-            <label for="engineDate">Engine Date</label>
-            <input type="text" class="form-control" formControlName="engineDate" id="engineDate" placeholder="XXXXXX">
+            <label for="engineDate">Engine Need Date</label>
+            <nz-date-picker class="form-control" formControlName="engineDate" id="engineDate" placeholder="XXXXXX" [(ngModel)]="engineDate" (ngModelChange)="onEngineDateChange($event)"></nz-date-picker>
+            <!-- <input type="text" class="form-control" formControlName="engineDate" id="engineDate" placeholder="XXXXXX"> -->
           </div>
         </div>
         <div class="col-sm">
@@ -121,3 +122,15 @@
     <button class="btn btn-primary" [disabled]="!quoteRequestForm.valid" (click)="submit()">Submit Quote</button>
   </div>
 </div>
+<nz-modal
+[(nzVisible)]="isVisible"
+nzTitle="Submit Quote Status"
+nzOkText="Ok"
+nzCancelText="Cancel"
+(nzOnOk)="handleOk()"
+(nzOnCancel)="handleCancel()"
+>
+<ng-container *nzModalContent>
+  <p>Your Quote is 1234</p>
+</ng-container>
+</nz-modal>

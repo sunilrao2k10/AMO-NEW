@@ -13,14 +13,21 @@ export class UsedEngineService {
     if (data && response.role === 'requestor'){
       if (response.quoteState === 'pending' || response.quoteState === 'sendback' || response.quoteState === 'reject'){
         panels = panelName.map((item: any) => {
-          item.active = item.code === 'QR' ? true : false;
-          item.disabled = item.code === 'QR' ? false : true;
+          item.active = item.code === 'QI' ? true : false;
+          item.disabled = item.code === 'QR' || item.code === 'QI' ? false : true;
           return item;
         });
       } else if (response.quoteState === 'approve'){
         panels = panelName.map((item: any) => {
-          item.active = item.code === 'EDR' ? true : false;
+          item.active = item.code === 'QI' ? true : false;
           item.disabled = item.code === 'QR' || item.code === 'QI' || item.code === 'EDR' ? false : true;
+          return item;
+        });
+      }
+      else if (response.quoteState === 'erc'){
+        panels = panelName.map((item: any) => {
+          item.active = item.code === 'ENC' ? true : false;
+          item.disabled = item.code === 'QR' || item.code === 'QI' || item.code === 'EDR' || item.code === 'ENC' ? false : true;
           return item;
         });
       }
@@ -28,7 +35,7 @@ export class UsedEngineService {
     if (data && response.role === 'provider'){
       if (response.quoteState === 'approve'){
         panels = panelName.map((item: any) => {
-          item.active = item.code === 'EDR' ? true : false;
+          item.active = item.code === 'QI' ? true : false;
           item.disabled = item.code === 'QR' || item.code === 'QI' || item.code === 'EDR' ? false : true;
           return item;
         });
@@ -38,7 +45,20 @@ export class UsedEngineService {
           item.disabled = item.code === 'QR' || item.code === 'QI' ? false : true;
           return item;
         });
-      } else {
+      } else if (response.quoteState === 'erc'){
+        panels = panelName.map((item: any) => {
+          item.active = item.code === 'ENC' ? true : false;
+          item.disabled = item.code === 'QR' || item.code === 'QI' || item.code === 'EDR' || item.code === 'ENC' ? false : true;
+          return item;
+        });
+      } else if (response.quoteState === 'ercSendBack'){
+        panels = panelName.map((item: any) => {
+          item.active = item.code === 'EDR' ? true : false;
+          item.disabled = item.code === 'QR' || item.code === 'QI' || item.code === 'EDR'  ? false : true;
+          return item;
+        });
+      }
+      else {
         panels = panelName.map((item: any) => {
           item.active = item.code === 'QI' ? true : false;
           item.disabled = item.code === 'QR' || item.code === 'QI' ? false : true;

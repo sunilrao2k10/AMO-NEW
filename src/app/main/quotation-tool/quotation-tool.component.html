@@ -1,0 +1,108 @@
+<div class="form-continer dark-bg">
+    <form>
+      <div class="row">
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="Requestor">Requestor</label>
+            <input type="text" class="form-control" id="Requestor" placeholder="XXXXXX">
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="modelNumber">Model Number</label>
+            <input type="text" class="form-control" id="modelNumber" placeholder="XXXXXX">
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="engineDate">Engine Date</label>
+            <input type="text" class="form-control" id="engineDate" placeholder="XXXXXX">
+          </div>
+        </div>
+        <div class="col-sm">
+          <label for="engineDate" class="d-block">Type of Transaction</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="typeOfTransaction" id="spareEngineSale"
+              value="spareEngineSale">
+            <label class="form-check-label" for="spareEngineSale">
+              Spare Engine sale
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="typeOfTransaction" id="engineExchange"
+              value="engineExchange">
+            <label class="form-check-label" for="engineExchange">
+              Engine Exchange
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row">      
+        <div class="col-sm-3">
+          <label for="engineDate" class="d-block">Channel</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="channel" id="GE"
+              value="spareEngineSale">
+            <label class="form-check-label" for="GE">
+              GE
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="channel" id="BH"
+              value="BH">
+            <label class="form-check-label" for="BH">
+              BH
+            </label>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <label for="engineDate" class="d-block">Product Line</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="productLine" id="LM6000"
+              value="LM6000">
+            <label class="form-check-label" for="LM6000">
+              LM6000
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="productLine" id="LM2500"
+              value="LM2500">
+            <label class="form-check-label" for="LM2500">
+              LM2500
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="productLine" id="LMS100"
+              value="LMS100">
+            <label class="form-check-label" for="LMS100">
+              LMS100
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="productLine" id="LM9000"
+              value="LM9000">
+            <label class="form-check-label" for="LM9000">
+              LM9000
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="Requestor">Requestor Comment</label>
+            <textarea rows="5" class="form-control" id="RequestorComment" placeholder="XXXXXX"></textarea>
+          </div>
+        </div>            
+      </div>      
+      <div class="row" >
+        <div class="col-sm-12">
+          <div class="form-group">
+            <button type="button" class="btn btn-primary" (click)="calculate()">Calculate</button>
+            <button type="button" class="btn btn-primary" (click)="save()">Save</button>
+            <b class="status" *ngIf="calculationDone"> Your quotation amount is ${{amount}}</b>
+          </div>
+        </div>            
+      </div>
+    </form>
+  </div>

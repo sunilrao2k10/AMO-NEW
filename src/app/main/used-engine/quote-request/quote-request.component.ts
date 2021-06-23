@@ -3,7 +3,7 @@ import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { GlobalService } from 'src/app/global.service';
 import { Utility } from 'src/app/shared/functions/utility';
-
+import { NzModalService } from 'ng-zorro-antd/modal';
 @Component({
   selector: 'app-quote-request',
   templateUrl: './quote-request.component.html',
@@ -15,6 +15,9 @@ export class QuoteRequestComponent implements OnInit {
   quoteRequestItem: any = {};
   formControls: any;
   selectedQuoteID = null;
+  engineDate:any;
+  isVisible = false;
+
   // tslint:disable-next-line:variable-name
   private _quoteRequest: any;
   quoteRequestUpdated: any;
@@ -28,13 +31,16 @@ export class QuoteRequestComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private globalService: GlobalService,
+    private modalService: NzModalService
     ){}
 
   ngOnInit(): void{
     this.globalService.roleDataSource$.subscribe((data: any) => this.roleName = data);
     this.initializeForm();
   }
-
+  onEngineDateChange(event: any){
+console.log(event);
+  }
   /**
    * Method to update value quote request form
    * @method updateForm
@@ -47,7 +53,7 @@ export class QuoteRequestComponent implements OnInit {
       this.updateFormData(this.quoteRequestItem);
       if (this.quoteRequestUpdated.role === 'provider'){
         this.quoteRequestForm.disable();
-      } else if (status === 'approve' || status === 'pending' || status === 'reject'){
+      } else if (status === 'approve' || status === 'pending' || status === 'reject'  || status === 'erc'){
         this.quoteRequestForm.disable();
       } else {
         this.quoteRequestForm.enable();
@@ -82,13 +88,20 @@ export class QuoteRequestComponent implements OnInit {
   resetFormData(): void{
     this.quoteRequestForm.reset();
   }
-
+  handleOk(){
+    this.isVisible = false;
+  }
+  handleCancel(){
+    this.isVisible = false;
+  }
   submit(): void{
     const request = {
       role: this.roleName,
       quoteRequest: this.quoteRequestForm.value,
     };
     console.log(request);
-    this.quoteRequestForm.disable();
+   //this.quoteRequestForm.disable();
+    this.isVisible = true;
+   
   }
 }

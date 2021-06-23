@@ -1,0 +1,23 @@
+{
+    "status":true,
+    "message":"success",
+    "pendingState":"quoteIssue",
+    "quoteRequest":{
+        "modelNumber":"1",
+        "requestor":"abcs",
+        "channel":"ge",
+        "typeOfTransaction":"engineExchange",
+        "engineDate":"29-05-2021",
+        "comment":"test"
+    },
+    "quoteIssue":{
+        "modelNumber":"2",
+        "requestor":"abcs",
+        "channel":"ge",
+        "typeOfTransaction":"engineExchange",
+        "engineDate":"29-05-2021",
+        "comment":"test"
+    }
+    }
+    
+    

@@ -1,0 +1,57 @@
+{
+    "status":true,
+    "message":"success",
+    "pendingState":"quoteRequest",
+    "data": [{
+        "stage":"quoteRequest",
+        "requestor":"1000",
+        "model":"11abcs",
+        "enginedate":"new111",
+        "typeOfTransaction":"spareEngineSale",
+        "channel":"BH",
+        "productLine":"LM6000",
+        "comment":"test111"
+        },
+        {
+        "stage":"quoteIssue",    
+        "requestor":"1000",
+        "model":"11abcs",
+        "enginedate":"new111",
+        "typeOfTransaction":"spareEngineSale",
+        "channel":"BH",
+        "productLine":"LM6000",
+        "comment":"test111"
+        },
+        {
+        "stage":"edr",    
+        "requestor":"1000",
+        "model":"11abcs",
+        "enginedate":"new111",
+        "typeOfTransaction":"spareEngineSale",
+        "channel":"BH",
+        "productLine":"LM6000",
+        "comment":"test111"
+        },
+        {
+        "stage":"pnc",      
+        "requestor":"1000",
+        "model":"11abcs",
+        "enginedate":"new111",
+        "typeOfTransaction":"spareEngineSale",
+        "channel":"BH",
+        "productLine":"LM6000",
+        "comment":"test111"
+        },
+        {
+        "stage":"billing",    
+        "requestor":"1000",
+        "model":"11abcs",
+        "enginedate":"new111",
+        "typeOfTransaction":"spareEngineSale",
+        "channel":"BH",
+        "productLine":"LM6000",
+        "comment":"test111"
+        }]
+    }
+    
+    

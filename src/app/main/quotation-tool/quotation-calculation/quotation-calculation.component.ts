@@ -33,6 +33,8 @@ export class QuotationCalculationComponent implements OnInit {
       this.showAmount = true;
     }
     if (value === 'save'){
+      if(this.selectedQuoteID==='Select Quote ID')
+      this.selectedQuoteID = '4444';
       this.router.navigate(['/used-engine'], { queryParams: { quoteID: this.selectedQuoteID} });
     }
   }

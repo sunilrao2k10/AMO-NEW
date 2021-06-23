@@ -101,6 +101,7 @@ header{
 .container-fluid{
     padding: 0 30px;    
     min-height: 500px;
+    padding-bottom: 60px;
 }
 .card-body{
     background: #dbdde0;
@@ -185,9 +186,11 @@ header{
 /*footer*/
 footer {    
     background: #1f6da8;
-    margin-top: 20px;
+    width: 100%;
     padding: 10px;    
     font-size: 14px;
+    position: fixed;
+    bottom: 0;
     ul{
         display: flex;
         justify-content: flex-end;
@@ -204,6 +207,24 @@ footer {
             + li{                
                 border-left: 1px solid $white;                
             }
+        }
+    }
+}
+
+.order-track-table{
+    table{
+        th:not(:first-child){
+            width: 16.6%;
+        }
+        th:nth-child(5){
+            width: 20%;
+        }
+    }
+}
+.quote-table {
+    table{
+        th:not(:first-child){
+            width: 16.6%;
         }
     }
 }

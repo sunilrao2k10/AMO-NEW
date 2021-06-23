@@ -19,48 +19,48 @@ export class OrderTrackingComponent implements OnInit {
 
   listOfData: Person[] = [
     {
-      PO: 1000,
-      SO: 'XXXXXX',
-      channel: 'XXXXXX',
-      dateRequiredAt: 'XXXXXX',
-      site: 'XXXXXX',
-      ESN: 'XXXXXX',
+      PO: 5555,
+      SO: '91221',
+      channel: 'GE',
+      dateRequiredAt: '12-03-2021',
+      site: 'ABC',
+      ESN: '1122',
       status: 'pending'
     },
     {
-      PO: 1111,
-      SO: 'XXXXXX',
-      channel: 'XXXXXX',
-      dateRequiredAt: 'XXXXXX',
-      site: 'XXXXXX',
-      ESN: 'XXXXXX',
+      PO: 4444,
+      SO: '912',
+      channel: 'GE',
+      dateRequiredAt: '12-03-2021',
+      site: 'ABC',
+      ESN: '1122',
       status: 'approved'
     },
     {
-      PO: 2222,
-      SO: 'XXXXXX',
-      channel: 'XXXXXX',
-      dateRequiredAt: 'XXXXXX',
-      site: 'XXXXXX',
-      ESN: 'XXXXXX',
+      PO: 6666,
+      SO: '91',
+      channel: 'GE',
+      dateRequiredAt: '12-03-2021',
+      site: 'ABC',
+      ESN: '1122',
       status: 'send'
     },
     {
       PO: 3333,
-      SO: 'XXXXXX',
-      channel: 'XXXXXX',
-      dateRequiredAt: 'XXXXXX',
-      site: 'XXXXXX',
-      ESN: 'XXXXXX',
+      SO: '1221',
+      channel: 'BH',
+      dateRequiredAt: '12-03-2021',
+      site: 'ABC',
+      ESN: '1122',
       status: 'reject'
     },
     {
       PO: 4444,
-      SO: 'XXXXXX',
-      channel: 'XXXXXX',
-      dateRequiredAt: 'XXXXXX',
-      site: 'XXXXXX',
-      ESN: 'XXXXXX',
+      SO: '221',
+      channel: 'GE',
+      dateRequiredAt: '12-03-2021',
+      site: 'ABC',
+      ESN: '1122',
       status: 'billed'
     }
   ];
